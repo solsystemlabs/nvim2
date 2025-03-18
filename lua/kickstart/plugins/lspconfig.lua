@@ -219,7 +219,10 @@ return {
         --    https://github.com/pmizio/typescript-tools.nvim
         --
         -- But for many setups, the LSP (`ts_ls`) will work just fine
-        -- ts_ls = {},
+        ts_ls = {},
+        html = { filetypes = { 'html' } },
+        tailwindcss = { filetypes = { 'html', 'vue', 'javascript', 'typescript', 'typescriptreact', 'javascriptreact' } },
+
         --
 
         lua_ls = {
