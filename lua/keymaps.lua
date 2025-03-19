@@ -46,3 +46,13 @@ vim.api.nvim_create_autocmd('TextYankPost', {
 })
 
 -- vim: ts=2 sts=2 sw=2 et
+
+-- show errors using leaderkey instead of ctrl, blech
+vim.keymap.set('n', '<leader>pp', vim.diagnostic.goto_prev, { desc = 'Go to [P]revious diagnostic message' })
+vim.keymap.set('n', '<leader>pn', vim.diagnostic.goto_next, { desc = 'Go to [N]ext diagnostic message' })
+vim.keymap.set('n', '<leader>ps', vim.diagnostic.open_float, { desc = '[S]how diagnostic under cursor' })
+vim.keymap.set('n', '<leader>pq', vim.diagnostic.setloclist, { desc = 'Open diagnostic [Q]uickfix list' })
+
+-- use leaderkey instead of ctrl for jumping to prev/next jump history
+vim.keymap.set('n', '<leader>o', '<C-o>', { desc = 'Go to previous cursor position in jump list' })
+vim.keymap.set('n', '<leader>i', '<C-i>', { desc = 'Go to next cursor position in jump list' })

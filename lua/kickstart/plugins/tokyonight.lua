@@ -17,7 +17,10 @@ return {
       -- Load the colorscheme here.
       -- Like many other themes, this one has different styles, and you could load
       -- any other, such as 'tokyonight-storm', 'tokyonight-moon', or 'tokyonight-day'.
-      vim.cmd.colorscheme 'tokyonight-storm'
+      vim.cmd.colorscheme 'tokyonight-moon'
+      -- transparency
+      vim.api.nvim_set_hl(0, 'Normal', { bg = 'NONE' })
+      vim.api.nvim_set_hl(0, 'NonText', { bg = 'NONE' })
     end,
   },
 }
