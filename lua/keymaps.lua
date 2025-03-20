@@ -56,3 +56,6 @@ vim.keymap.set('n', '<leader>pq', vim.diagnostic.setloclist, { desc = 'Open diag
 -- use leaderkey instead of ctrl for jumping to prev/next jump history
 vim.keymap.set('n', '<leader>o', '<C-o>', { desc = 'Go to previous cursor position in jump list' })
 vim.keymap.set('n', '<leader>i', '<C-i>', { desc = 'Go to next cursor position in jump list' })
+
+-- Rename element keybinding
+-- vim.keymap.set('n', '<leader>rr', vim.lsp.buf.rename, { desc = 'Rename Element' })
