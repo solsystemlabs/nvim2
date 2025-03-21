@@ -18,9 +18,14 @@ return {
       -- Like many other themes, this one has different styles, and you could load
       -- any other, such as 'tokyonight-storm', 'tokyonight-moon', or 'tokyonight-day'.
       vim.cmd.colorscheme 'tokyonight-moon'
-      -- transparency
+
+      -- transparency control
+      -- Set background to none for regular text in active windows
       vim.api.nvim_set_hl(0, 'Normal', { bg = 'NONE' })
+      -- Set background to none for special characters and whitespace
       vim.api.nvim_set_hl(0, 'NonText', { bg = 'NONE' })
+      -- Set background to none for non-current (inactive) windows
+      vim.api.nvim_set_hl(0, 'NormalNC', { bg = 'NONE' })
     end,
   },
 }
