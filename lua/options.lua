@@ -67,7 +67,7 @@ vim.opt.scrolloff = 10
 vim.opt.confirm = true
 
 -- Folding configuration using Treesitter
-vim.opt.foldmethod = 'expr'
+vim.opt.foldmethod = 'manual'
 vim.opt.foldexpr = 'nvim_treesitter#foldexpr()'
 vim.opt.foldenable = true -- Enable folding
 vim.opt.foldlevel = 99    -- Start with all folds open
