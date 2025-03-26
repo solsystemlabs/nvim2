@@ -66,4 +66,11 @@ vim.opt.scrolloff = 10
 -- See `:help 'confirm'`
 vim.opt.confirm = true
 
--- vim: ts=2 sts=2 sw=2 et
+-- Folding configuration using Treesitter
+vim.opt.foldmethod = 'expr'
+vim.opt.foldexpr = 'nvim_treesitter#foldexpr()'
+vim.opt.foldenable = true -- Enable folding
+vim.opt.foldlevel = 99    -- Start with all folds open
+
+-- Optional: Set fold column to show fold indicators
+vim.opt.foldcolumn = '1'
