@@ -75,6 +75,8 @@ return {
 
       -- See `:help telescope.builtin`
       local builtin = require 'telescope.builtin'
+      local actions = require 'telescope.actions'
+
       vim.keymap.set('n', '<leader>sh', builtin.help_tags, { desc = '[S]earch [H]elp' })
       vim.keymap.set('n', '<leader>sk', builtin.keymaps, { desc = '[S]earch [K]eymaps' })
       vim.keymap.set('n', '<leader>sf', builtin.find_files, { desc = '[S]earch [F]iles' })
@@ -84,8 +86,23 @@ return {
       vim.keymap.set('n', '<leader>sd', builtin.diagnostics, { desc = '[S]earch [D]iagnostics' })
       vim.keymap.set('n', '<leader>sr', builtin.resume, { desc = '[S]earch [R]esume' })
       vim.keymap.set('n', '<leader>s.', builtin.oldfiles, { desc = '[S]earch Recent Files ("." for repeat)' })
-      vim.keymap.set('n', '<leader><leader>', builtin.buffers, { desc = '[ ] Find existing buffers' })
       vim.keymap.set('n', '<leader>sm', builtin.git_status, { desc = '[S]earch [M]odified files' })
+
+      -- Replace your existing buffers mapping with this enhanced version
+      vim.keymap.set('n', '<leader><leader>', function()
+        builtin.buffers {
+          sort_mru = true,
+          sort_lastused = true,
+          show_all_buffers = true,
+          attach_mappings = function(_, map)
+            -- Add a mapping for deleting buffers while in normal mode in telescope
+            map('n', 'd', actions.delete_buffer)
+            -- Also add a mapping for deleting buffers while in insert mode
+            map('i', '<C-d>', actions.delete_buffer)
+            return true
+          end,
+        }
+      end, { desc = '[ ] Find existing buffers' })
 
       -- Slightly advanced example of overriding default behavior and theme
       vim.keymap.set('n', '<leader>/', function()
@@ -110,10 +127,44 @@ return {
         builtin.find_files { cwd = vim.fn.stdpath 'config' }
       end, { desc = '[S]earch [N]eovim files' })
 
+      -- Search in open buffers
       vim.keymap.set('n', '<leader>sb', function()
         builtin.live_grep({ grep_open_files = true, prompt_title = 'Search in Open Buffers' })
       end, { desc = '[S]earch in Open [B]uffers' })
+
+      -- Search unsaved buffers
+      vim.keymap.set('n', '<leader>su', function()
+        local modified_buffers = {}
+        for _, bufnr in ipairs(vim.api.nvim_list_bufs()) do
+          -- Using the non-deprecated API
+          if vim.api.nvim_get_option_value('modified', { buf = bufnr }) and
+              vim.api.nvim_get_option_value('buftype', { buf = bufnr }) == '' then
+            table.insert(modified_buffers, bufnr)
+          end
+        end
+
+        if #modified_buffers == 0 then
+          vim.notify("No modified buffers found", vim.log.levels.INFO)
+          return
+        end
+
+        builtin.buffers({
+          prompt_title = "Modified Buffers",
+          sort_mru = true,
+          sort_lastused = true,
+          only_cwd = false,
+          bufnr_width = 4,
+          show_all_buffers = false,
+          buffers = modified_buffers,
+          attach_mappings = function(_, map)
+            map('n', 'd', actions.delete_buffer)
+            map('i', '<C-d>', actions.delete_buffer)
+            return true
+          end,
+        })
+      end, { desc = '[S]earch [U]nsaved buffers' })
     end,
   },
 }
 -- vim: ts=2 sts=2 sw=2 et
+
