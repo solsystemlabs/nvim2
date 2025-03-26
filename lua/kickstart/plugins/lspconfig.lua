@@ -227,27 +227,13 @@ return {
         tailwindcss = { filetypes = { 'html', 'vue', 'javascript', 'typescript', 'typescriptreact', 'javascriptreact' } },
         lua_ls = {
           Lua = {
+            completion = {
+              callSnippet = 'Replace',
+            },
             workspace = { checkThirdParty = false },
             telemetry = { enable = false },
             -- NOTE: toggle below to ignore Lua_LS's noisy `missing-fields` warnings
             -- diagnostics = { disable = { 'missing-fields' } },
-          },
-        },
-
-        --
-
-        lua_ls = {
-          -- cmd = { ... },
-          -- filetypes = { ... },
-          -- capabilities = {},
-          settings = {
-            Lua = {
-              completion = {
-                callSnippet = 'Replace',
-              },
-              -- You can toggle below to ignore Lua_LS's noisy `missing-fields` warnings
-              -- diagnostics = { disable = { 'missing-fields' } },
-            },
           },
         },
       }
@@ -268,6 +254,7 @@ return {
       local ensure_installed = vim.tbl_keys(servers or {})
       vim.list_extend(ensure_installed, {
         'stylua', -- Used to format Lua code
+        'markdownlint',
       })
       require('mason-tool-installer').setup { ensure_installed = ensure_installed }
 
