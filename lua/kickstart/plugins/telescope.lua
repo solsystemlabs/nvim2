@@ -83,7 +83,7 @@ return {
         end
 
         if #modified_buffers == 0 then
-          vim.notify("No modified buffers found", vim.log.levels.INFO)
+          vim.notify("No modified unwritten buffers found", vim.log.levels.INFO)
           return
         end
 
