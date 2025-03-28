@@ -105,8 +105,10 @@ require 'lazy-bootstrap'
 -- [[ Configure and install plugins ]]
 require 'lazy-plugins'
 
+-- Enable matchit for HTML tag matching
 vim.cmd([[
   runtime macros/matchit.vim
 ]])
+
 -- The line beneath this is called `modeline`. See `:help modeline`
 -- vim: ts=2 sts=2 sw=2 et

@@ -21,9 +21,20 @@ return {
       -- See `:help telescope` and `:help telescope.setup()`
       require('telescope').setup {
         defaults = {
+          -- Add these configuration options to your existing setup
           path_display = {
-            "truncate"
+            "truncate",
+            -- or use "smart" to dynamically truncate based on window width
+            -- or use "absolute" for full paths
           },
+          -- layout_config = {
+          --   -- Adjust width to make more room for filenames
+          --   width = 0.9,
+          --   -- You can also adjust the height if needed
+          --   height = 0.8,
+          --   -- Increase preview width for more space for filenames
+          --   preview_width = 0.55,
+          -- },
         },
         extensions = {
           ['ui-select'] = {
@@ -72,7 +83,7 @@ return {
         end
 
         if #modified_buffers == 0 then
-          vim.notify("No modified buffers found", vim.log.levels.INFO)
+          vim.notify("No modified unwritten buffers found", vim.log.levels.INFO)
           return
         end
 
