@@ -77,6 +77,11 @@ return {
           --  To jump back, press <C-t>.
           map('gd', require('telescope.builtin').lsp_definitions, '[G]oto [D]efinition')
 
+          map('gs', function()
+            vim.cmd('vsplit')
+            vim.lsp.buf.definition()
+          end, '[G]oto type in new [s]plit')
+
           -- Find references for the word under your cursor.
           map('gr', require('telescope.builtin').lsp_references, '[G]oto [R]eferences')
 
