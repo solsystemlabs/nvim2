@@ -22,11 +22,19 @@ return {
       require('telescope').setup {
         defaults = {
           -- Add these configuration options to your existing setup
-          path_display = {
-            "truncate",
-            -- or use "smart" to dynamically truncate based on window width
-            -- or use "absolute" for full paths
-          },
+
+          -- Always make sure the file shows before the filepath (like on 'gr' when viewing references)
+          path_display = function(_, path)
+            -- Extract the filename from the path
+            local tail = require("telescope.utils").path_tail(path)
+            -- Format as "filename.ext (path/to/file)"
+            return string.format("%s (%s)", tail, path)
+          end,
+          -- path_display = {
+          --   "truncate",
+          --   -- or use "smart" to dynamically truncate based on window width
+          --   -- or use "absolute" for full paths
+          -- },
           -- layout_config = {
           --   -- Adjust width to make more room for filenames
           --   width = 0.9,
