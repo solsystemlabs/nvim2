@@ -5,5 +5,7 @@ test.sh
 .luarc.json
 nvim
 
+lua/clipboard.lua
+
 spell/
 lazy-lock.json
