@@ -51,6 +51,15 @@ return {
         },
       }
 
+      -- Create autocmd to enable line numbers in telescope preview windows
+      vim.api.nvim_create_autocmd("User", {
+        pattern = "TelescopePreviewerLoaded",
+        callback = function()
+          -- Enable line numbers for preview window
+          vim.wo.number = true
+        end,
+      })
+
       -- Enable Telescope extensions if they are installed
       pcall(require('telescope').load_extension, 'fzf')
       pcall(require('telescope').load_extension, 'ui-select')
