@@ -36,13 +36,10 @@ return {
         vim.keymap.set("n", "<leader>if", function()
           -- 1. Import missing
           vim.cmd("TSToolsAddMissingImports")
-
           -- 2. Remove extra
           vim.cmd("TSToolsRemoveUnusedImports")
-
           -- 3. Organize imports
           vim.cmd("TSToolsOrganizeImports")
-
           -- 4. Sort imports
           vim.cmd("TSToolsSortImports")
         end, { buffer = true, desc = "[I]mports: [F]ix all" })

@@ -45,7 +45,6 @@ vim.api.nvim_create_autocmd('TextYankPost', {
   end,
 })
 
--- vim: ts=2 sts=2 sw=2 et
 
 -- show errors using leaderkey instead of ctrl, blech
 vim.keymap.set('n', '<leader>pp', vim.diagnostic.goto_prev, { desc = 'Go to [P]revious diagnostic message' })
@@ -64,3 +63,5 @@ vim.keymap.set('n', '<leader>pq', vim.diagnostic.setloclist, { desc = 'Open diag
 -- Create the mapping from leader+j to Ctrl+w
 -- ughhhhh it not working
 -- vim.keymap.set('n', '<C-w>', '<leader>j', { desc = 'Window command prefix' })
+
+-- vim: ts=2 sts=2 sw=2 et
