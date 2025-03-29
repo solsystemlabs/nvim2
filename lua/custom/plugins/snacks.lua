@@ -4,6 +4,11 @@ return { {
   lazy = false,
   ---@type snacks.Config
   opts = {
+    animate = {
+      duration = 20,
+      easing = 'linear',
+      fps = 60,
+    },
     bigfile = { enabled = true },
     dashboard = { enabled = true },
     explorer = { enabled = true },
@@ -17,7 +22,20 @@ return { {
     picker = { enabled = true },
     quickfile = { enabled = true },
     scope = { enabled = true },
-    scroll = { enabled = true },
+    scroll = {
+      animate = {
+        duration = { step = 10, total = 100 },
+        easing = "linear",
+      },
+      animate_repeat = {
+        delay = 100,
+        duration = { step = 5, total = 25 },
+        easing = "linear",
+      },
+      filter = function(buf)
+        return vim.g.snacks_scroll ~= false and vim.b[buf].snacks_scroll ~= false and vim.bo[buf].buftype ~= "terminal"
+      end
+    },
     statuscolumn = { enabled = true },
     words = { enabled = true },
     styles = {
