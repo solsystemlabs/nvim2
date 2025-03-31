@@ -17,7 +17,49 @@ return { {
     picker = { enabled = true },
     quickfile = { enabled = true },
     scope = { enabled = true },
-    scroll = { enabled = false },
+    scroll = {
+      enabled = true,
+      filter = function(buf)
+        -- Check global and buffer-local settings first
+        if vim.g.snacks_scroll == false or vim.b[buf].snacks_scroll == false then
+          return false
+        end
+
+        -- Disable for regular file buffers, but allow for special buffer types
+        local buftype = vim.bo[buf].buftype
+        local filetype = vim.bo[buf].filetype
+
+        -- Always allow animations in telescope preview windows
+        if filetype:match("^telescope") or filetype:match("^snacks_picker_preview$") then
+          return true
+        end
+
+        -- Allow animations in non-file buffers like terminals, pickers, etc.
+        if buftype ~= "" then
+          return true
+        end
+
+        -- Disable animations in regular file buffers
+        return false
+      end,
+      -- Speed up the animation by reducing duration values
+      animate = {
+        -- Faster animation settings for initial scroll
+        duration = {
+          step = 5,   -- Reduced from 15
+          total = 100 -- Reduced from 250
+        },
+        easing = "linear",
+      },
+      animate_repeat = {
+        delay = 50,  -- Reduced from 100
+        duration = {
+          step = 2,  -- Reduced from 5
+          total = 25 -- Reduced from 50
+        },
+        easing = "linear",
+      },
+    },
     statuscolumn = { enabled = true },
     words = { enabled = true },
     styles = {
