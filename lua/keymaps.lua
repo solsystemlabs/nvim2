@@ -28,10 +28,10 @@ vim.keymap.set('n', '<leader>q', vim.diagnostic.setloclist, { desc = 'Open diagn
 --
 --  See `:help wincmd` for a list of all window commands
 -- NOTE: Moved to Snacks configuration
--- vim.keymap.set('n', '<C-h>', '<C-w><C-h>', { desc = 'Move focus to the left window' })
--- vim.keymap.set('n', '<C-l>', '<C-w><C-l>', { desc = 'Move focus to the right window' })
--- vim.keymap.set('n', '<C-j>', '<C-w><C-j>', { desc = 'Move focus to the lower window' })
--- vim.keymap.set('n', '<C-k>', '<C-w><C-k>', { desc = 'Move focus to the upper window' })
+vim.keymap.set('n', '<C-h>', '<C-w><C-h>', { desc = 'Move focus to the left window' })
+vim.keymap.set('n', '<C-l>', '<C-w><C-l>', { desc = 'Move focus to the right window' })
+vim.keymap.set('n', '<C-j>', '<C-w><C-j>', { desc = 'Move focus to the lower window' })
+vim.keymap.set('n', '<C-k>', '<C-w><C-k>', { desc = 'Move focus to the upper window' })
 
 -- [[ Basic Autocommands ]]
 --  See `:help lua-guide-autocommands`
@@ -60,14 +60,14 @@ vim.api.nvim_create_autocmd('TextYankPost', {
 -- vim.keymap.set('n', '<leader>o', '<C-o>', { desc = 'Go to previous cursor position in jump list' })
 -- vim.keymap.set('n', '<leader>i', '<C-i>', { desc = 'Go to next cursor position in jump list' })
 
- 
- -- Rebind all Ctrl+w window commands to use leader+j instead
- -- This preserves all the existing window command functionality but changes the prefix
- 
- -- Create the mapping from leader+j to Ctrl+w
- -- ughhhhh it not working
- -- vim.keymap.set('n', '<C-w>', '<leader>j', { desc = 'Window command prefix' })
- 
+
+-- Rebind all Ctrl+w window commands to use leader+j instead
+-- This preserves all the existing window command functionality but changes the prefix
+
+-- Create the mapping from leader+j to Ctrl+w
+-- ughhhhh it not working
+-- vim.keymap.set('n', '<C-w>', '<leader>j', { desc = 'Window command prefix' })
+
 -- Rename element keybinding
 -- vim.keymap.set('n', '<leader>rr', vim.lsp.buf.rename, { desc = 'Rename Element' })
 
