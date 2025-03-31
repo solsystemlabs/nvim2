@@ -91,7 +91,7 @@ return { {
     { "<leader>D",        function() Snacks.picker.lsp_type_definitions() end,                       desc = "Type [D]efinition" },
     { "<leader>ds",       function() Snacks.picker.lsp_symbols() end,                                desc = "[D]ocument [S]ymbols" },
     { "<leader>ws",       function() Snacks.picker.lsp_workspace_symbols() end,                      desc = "[W]orkspace [S]ymbols" },
-    { "<leader>sm",       function() require('custom.modified-buffers').show_modified_buffers() end, desc = "[S]how [M]odified buffers" },
+    { "<leader>su",       function() require('custom.modified-buffers').show_modified_buffers() end, desc = "[S]how [U]nwritten Buffers" },
 
     -- Search within buffer
     {
