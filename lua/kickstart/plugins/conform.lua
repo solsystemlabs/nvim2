@@ -4,6 +4,7 @@ return {
   opts = {
     quiet = true,
     formatters_by_ft = {
+      astro = { 'prettier' },
       typescript = { 'prettier' },
       typescriptreact = { 'prettier' },
       javascript = { 'prettier' },
