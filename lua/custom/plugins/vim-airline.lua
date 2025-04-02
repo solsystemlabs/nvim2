@@ -1,0 +1,115 @@
+-- vim-airline configuration for Neovim
+-- To be placed in lua/custom/plugins/vim-airline.lua
+
+return {
+  -- {
+  --   'vim-airline/vim-airline',
+  --   dependencies = {
+  --     'vim-airline/vim-airline-themes',
+  --   },
+  --   config = function()
+  --     -- Enable tabline
+  --     vim.g.airline_powerline_fonts = 0 -- Set to 1 if you have a powerline patched font
+  --     vim.g.airline_detect_modified = 1
+  --     vim.g.airline_detect_paste = 1
+  --     vim.g.airline_detect_crypt = 1
+  --
+  --     -- Tabline settings
+  --     vim.g['airline#extensions#tabline#enabled'] = 1
+  --     vim.g['airline#extensions#tabline#show_buffers'] = 1
+  --     vim.g['airline#extensions#tabline#show_tabs'] = 1
+  --     vim.g['airline#extensions#tabline#show_splits'] = 0
+  --     vim.g['airline#extensions#tabline#formatter'] = 'unique_tail_improved'
+  --
+  --     -- The unique_tail_improved formatter shows filename when unique
+  --     -- and path/filename when there are duplicates
+  --
+  --     -- Section customization
+  --     -- vim.g.airline_section_a = '' -- mode, crypt, paste, spell, iminsert
+  --     vim.g.airline_section_b = 'jj_branch_info' -- hunks, branch, etc.
+  --     -- vim.g.airline_section_c = '' -- bufferline or filename
+  --     vim.g.airline_section_x = 'filetype'       -- tagbar, filetype, virtualenv
+  --     -- vim.g.airline_section_y = '' -- fileencoding, fileformat
+  --     -- vim.g.airline_section_z = '' -- percentage, line number, column number
+  --
+  --     -- Theme - using tokyonight to match your default theme
+  --     -- You can uncomment this line if you want to use a specific airline theme
+  --     -- vim.g.airline_theme = 'tokyonight'
+  --     vim.g.airline_theme = 'onedark'
+  --
+  --     -- Git integration (works with fugitive if installed)
+  --     vim.g['airline#extensions#branch#enabled'] = 1
+  --
+  --     -- Enable extensions for plugins you have installed
+  --     -- These are detected automatically for the most part
+  --     vim.g['airline#extensions#fugitiveline#enabled'] = 1
+  --     vim.g['airline#extensions#nerdtree#enabled'] = 1
+  --     vim.g['airline#extensions#undotree#enabled'] = 1 -- For your custom/plugins/undotree.lua
+  --
+  --     -- Custom Jujutsu (jj) integration
+  --     -- Since there's no official Jujutsu plugin for vim-airline yet,
+  --     -- we can use a safer approach with jobstart (for Neovim)
+  --
+  --     -- Create an autocommand group for updating jj branch info
+  --     vim.api.nvim_create_augroup('AirlineJJ', { clear = true })
+  --
+  --     -- Store branch info in a global variable
+  --     _G.jj_branch_info = ''
+  --
+  --     -- Function to update branch info using jobstart (safe, non-blocking approach)
+  --     _G.update_jj_branch = function()
+  --       -- Only run in valid buffers with a real file
+  --       if vim.bo.buftype ~= '' or vim.fn.filereadable(vim.fn.expand('%')) == 0 then
+  --         return
+  --       end
+  --
+  --       -- Check if jj is available
+  --       local has_jj = (vim.fn.executable('jj') == 1)
+  --       if not has_jj then
+  --         return
+  --       end
+  --
+  --       -- Use jobstart to run jj in background
+  --       local jobid = vim.fn.jobstart('jj st --no-graph | grep "@ " | head -1 | awk "{print $2}"', {
+  --         stdout_buffered = true,
+  --         on_stdout = function(_, data)
+  --           if data and data[1] and data[1] ~= '' then
+  --             _G.jj_branch_info = data[1]:gsub("^%s*(.-)%s*$", "%1")
+  --           end
+  --         end,
+  --         on_exit = function(_, _)
+  --           -- If we got no result and fugitive is available, fall back to git
+  --           if _G.jj_branch_info == '' and vim.fn.exists('*FugitiveHead') == 1 then
+  --             _G.jj_branch_info = vim.fn['FugitiveHead']()
+  --           end
+  --
+  --           -- Refresh airline
+  --           vim.cmd('AirlineRefresh')
+  --         end
+  --       })
+  --     end
+  --
+  --     -- Set up the autocommands to update branch info when appropriate
+  --     vim.api.nvim_create_autocmd({ 'BufEnter', 'FocusGained' }, {
+  --       group = 'AirlineJJ',
+  --       callback = function()
+  --         _G.update_jj_branch()
+  --       end
+  --     })
+  --
+  --     -- Function to get the branch for airline
+  --     _G.get_jj_branch = function()
+  --       return _G.jj_branch_info
+  --     end
+  --
+  --     -- Uncomment these lines to use the jj integration:
+  --     vim.cmd([[
+  --       function! AirlineJJBranch()
+  --         return luaeval('get_jj_branch()')
+  --       endfunction
+  --       call airline#parts#define_function('jj_branch', 'AirlineJJBranch')
+  --       let g:airline_section_b = airline#section#create(['jj_branch'])
+  --     ]])
+  --   end
+  -- }
+}
