@@ -51,21 +51,22 @@ return {
         always_show_tabline = true,
         globalstatus = false,
         refresh = {
-          statusline = 1000, -- Refresh every second
-          tabline = 1000,
-          winbar = 1000,
+          statusline = 100, -- Refresh every second
+          tabline = 100,
+          winbar = 100,
         }
       },
       sections = {
         lualine_a = { 'mode' },
         lualine_b = {
-          'branch',
+          -- 'branch',
           { jj_info, icon = '' }, -- Our custom function
+          'searchcount',
           'diff',
-          'diagnostics'
+          'diagnostics',
         },
         lualine_c = { 'filename' },
-        lualine_x = { 'encoding', 'fileformat', 'filetype' },
+        lualine_x = { 'selectioncount', 'filesize', 'fileformat', 'filetype' },
         lualine_y = { 'progress' },
         lualine_z = { 'location' }
       },
