@@ -63,9 +63,9 @@ return {
         code_style = {
           comments = 'italic',
           keywords = 'none',
-          functions = 'none',
+          functions = 'bold,italic',
           strings = 'none',
-          variables = 'bold'
+          variables = 'italic'
         },
 
         -- Lualine options --
