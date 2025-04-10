@@ -11,7 +11,10 @@ return { {
     },
     bigfile = { enabled = true },
     dashboard = { enabled = true },
-    explorer = { enabled = true },
+    explorer = {
+      auto_close = true,
+      layout = { preset = "sidebar", preview = true },
+    },
     indent = { enabled = true },
     input = { enabled = true },
     layout = { enabled = true },
@@ -19,7 +22,15 @@ return { {
       enabled = true,
       timeout = 3000,
     },
-    picker = { enabled = true },
+    picker = {
+      sources = {
+        explorer = {
+          auto_close = true,
+          layout = { preset = "sidebar", preview = false },
+          hidden = true,
+        },
+      }
+    },
     quickfile = { enabled = true },
     scope = { enabled = true },
     scroll = {
