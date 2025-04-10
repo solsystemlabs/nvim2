@@ -9,7 +9,6 @@ return {
   end
 }
 
---Can't get which key to work with nvim surround so I give up...
 --[[
 NVIM-SURROUND KEYBINDINGS REFERENCE
 

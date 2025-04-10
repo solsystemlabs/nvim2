@@ -47,30 +47,6 @@ vim.api.nvim_create_autocmd('TextYankPost', {
   end,
 })
 
-
--- NOTE: The following keymaps have been moved to the Snacks configuration:
-
--- show errors using leaderkey instead of ctrl, blech
--- vim.keymap.set('n', '<leader>pp', vim.diagnostic.goto_prev, { desc = 'Go to [P]revious diagnostic message' })
--- vim.keymap.set('n', '<leader>pn', vim.diagnostic.goto_next, { desc = 'Go to [N]ext diagnostic message' })
--- vim.keymap.set('n', '<leader>ps', vim.diagnostic.open_float, { desc = '[S]how diagnostic under cursor' })
--- vim.keymap.set('n', '<leader>pq', vim.diagnostic.setloclist, { desc = 'Open diagnostic [Q]uickfix list' })
-
--- use leaderkey instead of ctrl for jumping to prev/next jump history
--- vim.keymap.set('n', '<leader>o', '<C-o>', { desc = 'Go to previous cursor position in jump list' })
--- vim.keymap.set('n', '<leader>i', '<C-i>', { desc = 'Go to next cursor position in jump list' })
-
-
--- Rebind all Ctrl+w window commands to use leader+j instead
--- This preserves all the existing window command functionality but changes the prefix
-
--- Create the mapping from leader+j to Ctrl+w
--- ughhhhh it not working
--- vim.keymap.set('n', '<C-w>', '<leader>j', { desc = 'Window command prefix' })
-
--- Rename element keybinding
--- vim.keymap.set('n', '<leader>rr', vim.lsp.buf.rename, { desc = 'Rename Element' })
-
 -- =====================================================
 -- Tab management keybindings
 -- =====================================================
