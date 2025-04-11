@@ -12,6 +12,7 @@ require('lazy').setup({
   require 'plugins.indent_line',
   require 'plugins.jj-diffconflicts',
   require 'plugins.jujutsu',
+  require 'plugins.lazyjj',
   require 'plugins.lint',
   require 'plugins.lspconfig',
   require 'plugins.lualine',
