@@ -154,7 +154,7 @@ return {
         astro = { filetypes = { 'astro' } },
         -- ts_ls = {},
         html = { filetypes = { 'html' } },
-        tailwindcss = { filetypes = { 'html', 'vue', 'javascript', 'typescript', 'typescriptreact', 'javascriptreact', 'astro' } },
+        -- tailwindcss = { filetypes = { 'html', 'vue', 'javascript', 'typescript', 'typescriptreact', 'javascriptreact', 'astro' } },
         lua_ls = {
           -- cmd = { ... },
           -- filetypes = { ... },
