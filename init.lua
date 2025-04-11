@@ -20,6 +20,9 @@ require 'lazy-bootstrap'
 -- [[ Configure and install plugins ]]
 require 'lazy-plugins'
 
+vim.o.background = "dark" -- or "light" for light mode
+vim.cmd([[colorscheme gruvbox]])
+
 -- Enable matchit for HTML tag matching
 vim.cmd([[
   runtime macros/matchit.vim
