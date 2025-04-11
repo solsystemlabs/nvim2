@@ -1,10 +1,5 @@
--- Step 1: Create a new file at lua/custom/telescope-extensions.lua to hold our custom functions
-
--- In lua/custom/telescope-extensions.lua
 local M = {}
 
--- Function to find files changed on the current branch
--- compared to the base branch (main/master)
 M.find_branch_files = function()
   local pickers = require("telescope.pickers")
   local finders = require("telescope.finders")
