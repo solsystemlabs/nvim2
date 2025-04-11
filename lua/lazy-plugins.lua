@@ -1,6 +1,7 @@
 require('lazy').setup({
   'tpope/vim-sleuth',
 
+  require 'plugins.augment',
   require 'plugins.auto-session',
   require 'plugins.autopairs',
   require 'plugins.cmp',
