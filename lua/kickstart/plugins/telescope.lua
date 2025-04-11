@@ -57,6 +57,9 @@ return {
       local find_unsaved_buffers = require('custom.modified-buffers')
 
       -- Set up keymapping for unsaved buffers
+
+      local builtin = require 'telescope.builtin'
+      vim.keymap.set('n', '<leader>sm', builtin.git_status, { desc = '[S]earch [M]odified files' })
       vim.keymap.set('n', '<leader>su', find_unsaved_buffers, { desc = '[S]earch [U]nsaved buffers with diff' })
 
       -- NOTE: Keybindings have been removed and moved to the Snacks configuration
@@ -64,4 +67,3 @@ return {
   },
 }
 -- vim: ts=2 sts=2 sw=2 et
-
