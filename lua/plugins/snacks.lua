@@ -89,6 +89,27 @@ return { {
     { "<leader>as",      function() vim.cmd("Augment status") end,                                desc = "Status" },
     { "<leader>at",      function() vim.cmd("Augment chat-toggle") end,                           desc = "Toggle Chat Window" },
 
+    { "<leader>bc",      function() Snacks.bufdelete() end,                                       desc = "Close current buffer" },
+    { "<leader>bC",      function() Snacks.bufdelete({ force = true }) end,                       desc = "Force close current buffer" },
+    { "<leader>bo",      function() require('buffers').close_all_buffers_except_current() end,    desc = "Close all buffers except current" },
+    { "<leader>ba",      function() require('buffers').close_all_buffers() end,                   desc = "Close all buffers" },
+    { "<leader>bu",      function() require('buffers').close_unmodified_buffers() end,            desc = "Close unmodified buffers" },
+    { "<leader>bl",      function() require('buffers').close_buffers_to_left() end,               desc = "Close buffers to the left" },
+    { "<leader>br",      function() require('buffers').close_buffers_to_right() end,              desc = "Close buffers to the right" },
+    { "<leader>bm",      function() require('buffers').list_modified_buffers() end,               desc = "List modified buffers" },
+    { "<leader>bs",      function() Snacks.picker.buffers() end,                                  desc = "Buffer selector" },
+
+    -- Quick buffer navigation (additional to what you might already have)
+    { "[b",              function() vim.cmd("bprevious") end,                                     desc = "Previous buffer" },
+    { "]b",              function() vim.cmd("bnext") end,                                         desc = "Next buffer" },
+    { "<leader>bn",      function() vim.cmd("bnext") end,                                         desc = "Next buffer" },
+    { "<leader>bp",      function() vim.cmd("bprevious") end,                                     desc = "Previous buffer" },
+    { "<leader>b1",      function() vim.cmd("buffer 1") end,                                      desc = "Buffer 1" },
+    { "<leader>b2",      function() vim.cmd("buffer 2") end,                                      desc = "Buffer 2" },
+    { "<leader>b3",      function() vim.cmd("buffer 3") end,                                      desc = "Buffer 3" },
+    { "<leader>b4",      function() vim.cmd("buffer 4") end,                                      desc = "Buffer 4" },
+    { "<leader>b5",      function() vim.cmd("buffer 5") end,                                      desc = "Buffer 5" },
+
     -- find
     { "<leader>fb",      function() Snacks.picker.buffers() end,                                  desc = "Buffers" },
     { "<leader>fc",      function() Snacks.picker.files({ cwd = vim.fn.stdpath("config") }) end,  desc = "Find Config File" },
