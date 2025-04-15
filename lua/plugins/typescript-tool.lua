@@ -22,13 +22,13 @@ return {
       callback = function()
         -- Create a submenu under <leader>i for imports
         vim.keymap.set("n", "<leader>io", "<cmd>TSToolsOrganizeImports<CR>",
-          { buffer = true, desc = "[I]mports: [O]rganize" })
+          { buffer = true, desc = "[O]rganize" })
         vim.keymap.set("n", "<leader>ia", "<cmd>TSToolsAddMissingImports<CR>",
-          { buffer = true, desc = "[I]mports: [A]dd missing" })
+          { buffer = true, desc = "[A]dd missing" })
         vim.keymap.set("n", "<leader>ir", "<cmd>TSToolsRemoveUnusedImports<CR>",
-          { buffer = true, desc = "[I]mports: [R]emove unused" })
+          { buffer = true, desc = "[R]emove unused" })
         vim.keymap.set("n", "<leader>is", "<cmd>TSToolsSortImports<CR>",
-          { buffer = true, desc = "[I]mports: [S]ort" })
+          { buffer = true, desc = "[S]ort" })
         -- Fix all shortcut that runs commands in specific order
         vim.keymap.set("n", "<leader>if", function()
           -- 1. Import missing
@@ -39,7 +39,7 @@ return {
           vim.cmd("TSToolsOrganizeImports")
           -- 4. Sort imports
           vim.cmd("TSToolsSortImports")
-        end, { buffer = true, desc = "[I]mports: [F]ix all" })
+        end, { buffer = true, desc = "[F]ix all" })
       end
     })
   end
