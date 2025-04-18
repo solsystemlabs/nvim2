@@ -110,6 +110,8 @@ return { {
     { "<leader>b4",      function() vim.cmd("buffer 4") end,                                      desc = "Buffer 4" },
     { "<leader>b5",      function() vim.cmd("buffer 5") end,                                      desc = "Buffer 5" },
 
+    { "<leader>cc",      function() vim.cmd('source $MYVIMRC') end,                               desc = "Source neovim" },
+
     -- find
     { "<leader>fb",      function() Snacks.picker.buffers() end,                                  desc = "Buffers" },
     { "<leader>fc",      function() Snacks.picker.files({ cwd = vim.fn.stdpath("config") }) end,  desc = "Find Config File" },
