@@ -37,7 +37,7 @@ return {
     require('lualine').setup {
       options = {
         icons_enabled = true,
-        theme = 'onedark',
+        theme = 'gruvbox',
         component_separators = { left = '', right = '' },
         section_separators = { left = '', right = '' },
         disabled_filetypes = {
@@ -49,22 +49,22 @@ return {
         always_show_tabline = true,
         globalstatus = false,
         refresh = {
-          statusline = 100, -- Refresh every second
+          statusline = 100,
           tabline = 100,
           winbar = 100,
         }
       },
       sections = {
-        lualine_a = { 'mode' },
+        lualine_a = { 'mode', fmt = function(str) return str:sub(1, 1) end },
         lualine_b = {
           -- 'branch',
-          { jj_info, icon = '' }, -- Our custom function
+          { jj_info, icon = '' }, -- Our custom function
           'searchcount',
           'diff',
           'diagnostics',
         },
         lualine_c = { 'filename' },
-        lualine_x = { 'selectioncount', 'filesize', 'fileformat', 'filetype' },
+        lualine_x = { 'selectioncount', 'filesize', 'fileformat', 'filetype', 'lsp_status' },
         lualine_y = { 'progress' },
         lualine_z = { 'location' }
       },
@@ -77,7 +77,9 @@ return {
         lualine_z = {}
       },
       tabline = {},
-      winbar = {},
+      winbar = {
+        lualine_a = { 'filename' }
+      },
       inactive_winbar = {},
       extensions = {}
     }
