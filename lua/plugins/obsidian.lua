@@ -24,35 +24,35 @@ return {
   },
   keys = {
     -- Navigation and basic commands
-    { "<leader>on", "<cmd>ObsidianNew<CR>",             desc = "[N]ew note" },
-    { "<leader>oo", "<cmd>ObsidianOpen<CR>",            desc = "[O]pen in app" },
-    { "<leader>of", "<cmd>ObsidianFollowLink<CR>",      desc = "[F]ollow link" },
-    { "<leader>ob", "<cmd>ObsidianBacklinks<CR>",       desc = "[B]acklinks" },
-    { "<leader>ol", "<cmd>ObsidianLinks<CR>",           desc = "View [L]inks" },
+    { "<leader>on",  "<cmd>ObsidianNew<CR>",             desc = "[N]ew note" },
+    { "<leader>oo",  "<cmd>ObsidianOpen<CR>",            desc = "[O]pen in app" },
+    { "<leader>of",  "<cmd>ObsidianFollowLink<CR>",      desc = "[F]ollow link" },
+    { "<leader>ob",  "<cmd>ObsidianBacklinks<CR>",       desc = "[B]acklinks" },
+    { "<leader>ol",  "<cmd>ObsidianLinks<CR>",           desc = "View [L]inks" },
 
     -- Search and quick navigation
-    { "<leader>oq", "<cmd>ObsidianQuickSwitch<CR>",     desc = "[Q]uick switch" },
-    { "<leader>os", "<cmd>ObsidianSearch<CR>",          desc = "[S]earch" },
-    { "<leader>ot", "<cmd>ObsidianTags<CR>",            desc = "[T]ags" },
+    { "<leader>oq",  "<cmd>ObsidianQuickSwitch<CR>",     desc = "[Q]uick switch" },
+    { "<leader>os",  "<cmd>ObsidianSearch<CR>",          desc = "[S]earch" },
+    { "<leader>ot",  "<cmd>ObsidianTags<CR>",            desc = "[T]ags" },
 
     -- Daily notes
-    { "<leader>od", "<cmd>ObsidianToday<CR>",           desc = "[D]aily note (today)" },
-    { "<leader>oy", "<cmd>ObsidianYesterday<CR>",       desc = "[Y]esterday note" },
-    { "<leader>om", "<cmd>ObsidianTomorrow<CR>",        desc = "To[m]orrow note" },
+    { "<leader>odt", "<cmd>ObsidianToday<CR>",           desc = "[D]aily note (today)" },
+    { "<leader>ody", "<cmd>ObsidianYesterday<CR>",       desc = "[Y]esterday note" },
+    { "<leader>odm", "<cmd>ObsidianTomorrow<CR>",        desc = "To[m]orrow note" },
 
     -- Content creation and editing
-    { "<leader>op", "<cmd>ObsidianPasteImg<CR>",        desc = "[P]aste image" },
-    { "<leader>oi", "<cmd>ObsidianTemplate<CR>",        desc = "[I]nsert template" },
-    { "<leader>ox", "<cmd>ObsidianLinkNew<CR>",         desc = "Link new note",               mode = { "n", "v" } },
-    { "<leader>oe", "<cmd>ObsidianExtractNote<CR>",     desc = "[E]xtract selection to note", mode = "v" },
+    { "<leader>op",  "<cmd>ObsidianPasteImg<CR>",        desc = "[P]aste image" },
+    { "<leader>oi",  "<cmd>ObsidianTemplate<CR>",        desc = "[I]nsert template" },
+    { "<leader>ox",  "<cmd>ObsidianLinkNew<CR>",         desc = "Link new note",               mode = { "n", "v" } },
+    { "<leader>oe",  "<cmd>ObsidianExtractNote<CR>",     desc = "[E]xtract selection to note", mode = "v" },
 
     -- Workspace management
-    { "<leader>ow", "<cmd>ObsidianWorkspace<CR>",       desc = "[W]orkspace" },
+    { "<leader>ow",  "<cmd>ObsidianWorkspace<CR>",       desc = "[W]orkspace" },
 
     -- Advanced features
-    { "<leader>or", "<cmd>ObsidianRename<CR>",          desc = "[R]ename note" },
-    { "<leader>oc", "<cmd>ObsidianTOC<CR>",             desc = "Table of [C]ontents" },
-    { "<leader>on", "<cmd>ObsidianNewFromTemplate<CR>", desc = "[N]ew from template" },
+    { "<leader>or",  "<cmd>ObsidianRename<CR>",          desc = "[R]ename note" },
+    { "<leader>oc",  "<cmd>ObsidianTOC<CR>",             desc = "Table of [C]ontents" },
+    { "<leader>ot",  "<cmd>ObsidianNewFromTemplate<CR>", desc = "[N]ew from template" },
   },
   opts = {
     -- Directory where your vaults are stored

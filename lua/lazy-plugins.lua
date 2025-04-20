@@ -4,6 +4,7 @@ require('lazy').setup({
   require 'plugins.augment',
   require 'plugins.auto-session',
   require 'plugins.autopairs',
+  require 'plugins.bufferline',
   require 'plugins.cmp',
   require 'plugins.colorscheme',
   require 'plugins.conform',

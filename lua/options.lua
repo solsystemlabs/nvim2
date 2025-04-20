@@ -72,6 +72,8 @@ vim.opt.scrolloff = 10
 -- See `:help 'confirm'`
 vim.opt.confirm = true
 
+vim.opt.conceallevel = 2
+
 -- Folding configuration using Treesitter
 vim.opt.foldmethod = 'indent'
 vim.opt.foldexpr = 'nvim_treesitter#foldexpr()'

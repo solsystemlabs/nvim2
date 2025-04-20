@@ -37,7 +37,7 @@ return {
     require('lualine').setup {
       options = {
         icons_enabled = true,
-        theme = 'gruvbox',
+        theme = 'onedark',
         component_separators = { left = '', right = '' },
         section_separators = { left = '', right = '' },
         disabled_filetypes = {
@@ -47,7 +47,6 @@ return {
         ignore_focus = {},
         always_divide_middle = true,
         always_show_tabline = true,
-        globalstatus = false,
         refresh = {
           statusline = 100,
           tabline = 100,
@@ -55,7 +54,7 @@ return {
         }
       },
       sections = {
-        lualine_a = { 'mode', fmt = function(str) return str:sub(1, 1) end },
+        lualine_a = { { 'mode', fmt = function(str) return str:sub(1, 1) end } },
         lualine_b = {
           -- 'branch',
           { jj_info, icon = '' }, -- Our custom function
@@ -70,7 +69,7 @@ return {
       },
       inactive_sections = {
         lualine_a = {},
-        lualine_b = {},
+        lualine_b = { { jj_info, icon = '' }, 'searchcount', 'diff', 'diagnostics' },
         lualine_c = { 'filename' },
         lualine_x = { 'location' },
         lualine_y = {},
