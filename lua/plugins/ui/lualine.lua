@@ -62,7 +62,7 @@ return {
           'diff',
           'diagnostics',
         },
-        lualine_c = { 'filename' },
+        lualine_c = { { 'filename', path = 1 } },
         lualine_x = { 'selectioncount', 'filesize', 'fileformat', 'filetype', 'lsp_status' },
         lualine_y = { 'progress' },
         lualine_z = { 'location' }
@@ -77,7 +77,7 @@ return {
       },
       tabline = {},
       winbar = {
-        lualine_a = { 'filename' }
+        lualine_a = { { 'filename', path = 0 } }
       },
       inactive_winbar = {},
       extensions = {}
