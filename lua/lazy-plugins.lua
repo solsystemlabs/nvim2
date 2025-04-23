@@ -34,6 +34,7 @@ require('lazy').setup({
   require 'plugins.typr',
   require 'plugins.undotree',
   require 'plugins.which-key',
+  require 'plugins.yazi',
 }, {
   ui = {
     -- If you are using a Nerd Font: set icons to an empty table which will use the
