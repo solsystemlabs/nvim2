@@ -130,6 +130,15 @@ return { {
     { "<leader>gs",      function() Snacks.picker.git_status() end,                               desc = "Git Status" },
     { "<leader>gS",      function() Snacks.picker.git_stash() end,                                desc = "Git Stash" },
 
+    -- dadbod-explorer
+    { "<leader>le",      function() require("dadbod-explorer").explore() end,                     desc = "Explore" },
+    { "<leader>ld",      function() require("dadbod-explorer").action("describe") end,            desc = "Describe" },
+    { "<leader>ls",      function() require("dadbod-explorer").action("show_sample") end,         desc = "Show Sample" },
+    { "<leader>lw",      function() require("dadbod-explorer").action("show_filter") end,         desc = "Show Filter" },
+    { "<leader>lv",      function() require("dadbod-explorer").action("show_distribution") end,   desc = "Show Distribution" },
+    { "<leader>ly",      function() require("dadbod-explorer").action("yank_columns") end,        desc = "Yank Columns" },
+    { "<leader>lo",      function() require("dadbod-explorer").action("list_objects") end,        desc = "List Objects" },
+
     -- Grep
     { "<leader>sg",      function() Snacks.picker.grep() end,                                     desc = "Grep" },
     { "<leader>sO",      function() Snacks.picker.grep_buffers() end,                             desc = "Grep Open Buffers" },
