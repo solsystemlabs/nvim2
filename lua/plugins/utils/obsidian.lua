@@ -133,7 +133,7 @@ return {
 
     -- UI settings
     ui = {
-      enable = true, -- Set to false if you don't want any UI enhancements
+      enable = false, -- Set to false if you don't want any UI enhancements
     },
 
     -- Attachment settings for images
