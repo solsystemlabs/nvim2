@@ -46,7 +46,7 @@ return {
         -- Close Snacks explorer before saving session
         pre_save_cmds = { close_explorer },
         -- Open Snacks explorer after restoring session
-        post_restore_cmds = { open_explorer }
+        -- post_restore_cmds = { open_explorer }
       }
 
       -- Add keymaps for session management
