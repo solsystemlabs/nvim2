@@ -9,6 +9,7 @@ require('lazy').setup({
   require 'plugins.core.treesitter',
   require 'plugins.core.undotree',
   require 'plugins.core.which-key',
+  require 'plugins.experimental.dadbod-explorer',
   require 'plugins.experimental.typr',
   require 'plugins.experimental.yazi',
   require 'plugins.lsp.lint',
