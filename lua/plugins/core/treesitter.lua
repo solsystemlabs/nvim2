@@ -1,6 +1,9 @@
 return {
   { -- Highlight, edit, and navigate code
     'nvim-treesitter/nvim-treesitter',
+    dependencies = {
+      "nvim-treesitter/nvim-treesitter-textobjects",
+    },
     build = ':TSUpdate',
     main = 'nvim-treesitter.configs', -- Sets main module to use for opts
     -- [[ Configure Treesitter ]] See `:help nvim-treesitter`
@@ -9,17 +12,23 @@ return {
         'astro',
         'bash',
         'c',
+        'css',
         'diff',
+        'dockerfile',
+        'gitignore',
         'html',
         'lua',
         'luadoc',
         'markdown',
         'markdown_inline',
+        'prisma',
         'query',
         'vim',
         'vimdoc',
         'typescript',
         'tsx',
+        'vim',
+        'yaml',
       },
       -- Autoinstall languages that are not installed
       auto_install = true,
@@ -32,6 +41,15 @@ return {
       },
       indent = { enable = true, disable = { 'ruby' } },
     },
+    incremental_selection = {
+      enable = true,
+      keymaps = {
+        init_selection = "<C-space>",
+        node_incremental = "<C-space>",
+        scope_incremental = "<C-s>",
+        node_decremental = "<bs>",
+      }
+    }
     -- There are additional nvim-treesitter modules that you can use to interact
     -- with nvim-treesitter. You should go explore a few and see what interests you:
     --

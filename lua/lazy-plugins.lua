@@ -7,6 +7,7 @@ require('lazy').setup({
   require 'plugins.core.snacks',
   require 'plugins.core.telescope',
   require 'plugins.core.treesitter',
+  require 'plugins.core.treesitter-textobjects',
   require 'plugins.core.undotree',
   require 'plugins.core.which-key',
   require 'plugins.experimental.dadbod-explorer',
@@ -32,6 +33,10 @@ require('lazy').setup({
   require 'plugins.utils.todo-comments',
   require 'plugins.utils.trouble',
   require 'plugins.utils.ts-comments',
+  require 'plugins.vcs.gitlab',
+  require 'plugins.vcs.jj-diffconflicts',
+  require 'plugins.vcs.jujutsu',
+  require 'plugins.vcs.lazyjj',
 }, {
   ui = {
     -- If you are using a Nerd Font: set icons to an empty table which will use the
