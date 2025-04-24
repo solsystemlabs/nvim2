@@ -7,6 +7,7 @@ require('lazy').setup({
   require 'plugins.core.snacks',
   require 'plugins.core.telescope',
   require 'plugins.core.treesitter',
+  require 'plugins.core.treesitter-context',
   require 'plugins.core.treesitter-textobjects',
   require 'plugins.core.undotree',
   require 'plugins.core.which-key',
