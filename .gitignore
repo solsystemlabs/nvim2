@@ -9,3 +9,4 @@ lua/clipboard.lua
 
 spell/
 lazy-lock.json
+.aider*

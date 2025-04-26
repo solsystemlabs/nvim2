@@ -12,7 +12,7 @@ return {
       html = { 'prettier' },
       css = { 'prettier' },
       scss = { 'prettier' },
-      markdown = { 'prettier' },
+      markdown = { 'markdownfmt', 'prettier' },
       yaml = { 'prettier' },
       graphql = { 'prettier' },
       vue = { 'prettier' },
