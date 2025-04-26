@@ -21,7 +21,8 @@ require 'lazy-bootstrap'
 require 'lazy-plugins'
 
 vim.o.background = "dark" -- or "light" for light mode
-vim.cmd([[colorscheme onedark]])
+-- vim.cmd([[colorscheme onedark]])
+vim.cmd([[colorscheme gruvbox]])
 
 -- Enable matchit for HTML tag matching
 vim.cmd([[
