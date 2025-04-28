@@ -19,7 +19,7 @@ require('lazy').setup({
   require 'plugins.lsp.lspconfig',
   require 'plugins.lsp.tailwind-tools',
   require 'plugins.lsp.typescript-tool',
-  require 'plugins.ui.bufferline',
+  -- require 'plugins.ui.bufferline',
   require 'plugins.ui.colorscheme',
   require 'plugins.ui.gitsigns',
   require 'plugins.ui.lualine',
