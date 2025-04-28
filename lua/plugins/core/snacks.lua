@@ -21,7 +21,8 @@ return { {
     layout = { enabled = true },
     notifier = {
       enabled = true,
-      timeout = 3000,
+      timeout = 5000,
+      top_down = false,
     },
     picker = {
       sources = {
