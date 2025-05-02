@@ -1,7 +1,8 @@
 require('lazy').setup({
   'tpope/vim-sleuth',
 
-  require 'plugins.core.cmp',
+  require 'plugins.core.blink',
+  -- require 'plugins.core.cmp',
   require 'plugins.core.conform',
   require 'plugins.core.nvim-surround',
   require 'plugins.core.snacks',

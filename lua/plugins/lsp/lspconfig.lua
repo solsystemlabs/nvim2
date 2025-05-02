@@ -193,9 +193,9 @@ return {
             server.capabilities = vim.tbl_deep_extend('force', {}, capabilities, server.capabilities or {})
             require('lspconfig')[server_name].setup(server)
           end,
-          ['ts_ls'] = function()
-            -- do nothing, managed by typescript-tools.nvim
-          end
+          -- ['ts_ls'] = function()
+          -- do nothing, managed by typescript-tools.nvim
+          -- end
         },
       }
     end,
