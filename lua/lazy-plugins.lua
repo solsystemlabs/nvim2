@@ -13,6 +13,7 @@ require('lazy').setup({
   require 'plugins.core.which-key',
   require 'plugins.experimental.blink',
   require 'plugins.experimental.dadbod-explorer',
+  require 'plugins.experimental.fzf-lua',
   require 'plugins.experimental.jsx-element',
   require 'plugins.experimental.nvim-scissors',
   require 'plugins.experimental.typr',
