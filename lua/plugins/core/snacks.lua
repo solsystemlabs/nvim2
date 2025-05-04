@@ -135,6 +135,10 @@ return { {
 
     { "<leader>cc",      function() vim.cmd('source $MYVIMRC') end,                               desc = "Source neovim" },
 
+    -- nvim-scissors
+    { "<leader>csa",     function() require("scissors").addNewSnippet() end,                      desc = "Add Snippet" },
+    { "<leader>cse",     function() require("scissors").editSnippet() end,                        desc = "Edit Snippet" },
+
     -- find
     { "<leader>fb",      function() Snacks.picker.buffers() end,                                  desc = "Buffers" },
     { "<leader>fc",      function() Snacks.picker.files({ cwd = vim.fn.stdpath("config") }) end,  desc = "Find Config File" },
