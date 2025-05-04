@@ -1,7 +1,6 @@
 require('lazy').setup({
   'tpope/vim-sleuth',
 
-  require 'plugins.core.blink',
   -- require 'plugins.core.cmp',
   require 'plugins.core.conform',
   require 'plugins.core.nvim-surround',
@@ -12,6 +11,7 @@ require('lazy').setup({
   require 'plugins.core.treesitter-textobjects',
   require 'plugins.core.undotree',
   require 'plugins.core.which-key',
+  require 'plugins.experimental.blink',
   require 'plugins.experimental.dadbod-explorer',
   require 'plugins.experimental.jsx-element',
   require 'plugins.experimental.typr',
