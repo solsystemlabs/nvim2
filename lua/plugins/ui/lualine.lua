@@ -25,7 +25,7 @@ return {
         if jj_desc == "" then
           jj_desc = "No description"
         end
-        jj_cache = change_id .. " " .. jj_desc .. " (" .. commit_hash .. ")"
+        jj_cache = change_id .. "  " .. jj_desc .. "  (" .. commit_hash .. ")"
         return jj_cache
       end
 
@@ -34,7 +34,7 @@ return {
       if git_hash:match("^%w+$") then
         local git_msg = vim.fn.system("git log -1 --pretty=%s 2>/dev/null | tr -d '\n'")
         if git_msg ~= "" then
-          jj_cache = git_hash .. " " .. git_msg
+          jj_cache = git_hash .. "  " .. git_msg
         else
           jj_cache = git_hash
         end
