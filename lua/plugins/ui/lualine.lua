@@ -25,7 +25,7 @@ return {
         if jj_desc == "" then
           jj_desc = "No description"
         end
-        jj_cache = change_id .. " (" .. commit_hash .. ") " .. jj_desc
+        jj_cache = change_id .. " " .. jj_desc .. " (" .. commit_hash .. ")"
         return jj_cache
       end
 
