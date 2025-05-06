@@ -19,8 +19,8 @@ return {
       local change_id, commit_hash = jj_status:match("Working copy%s+%(@%)%s+:%s+(%w+)%s+(%w+)")
 
       if change_id and commit_hash then
-        -- Get the description of the current change
-        local jj_desc = vim.fn.system("jj log -r @ -T 'description.first_line()'")
+        -- Get the description of the current change, using --no-graph to avoid TUI characters
+        local jj_desc = vim.fn.system("jj log -r @ --no-graph -T 'description.first_line()'")
         jj_desc = jj_desc:gsub("\n", ""):gsub("^%s+", ""):gsub("%s+$", "")
         if jj_desc == "" then
           jj_desc = "No description"
