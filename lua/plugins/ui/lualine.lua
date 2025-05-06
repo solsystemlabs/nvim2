@@ -2,7 +2,7 @@ return {
   'nvim-lualine/lualine.nvim',
   dependencies = { 'nvim-tree/nvim-web-devicons' },
   config = function()
-    -- Custom function to get Jujutsu change ID and commit hash
+    -- Custom function to get Jujutsu change ID, commit hash, and description
     -- Cache the result to avoid running external commands repeatedly
     local jj_cache = nil
     local function jj_info()
@@ -19,14 +19,25 @@ return {
       local change_id, commit_hash = jj_status:match("Working copy%s+%(@%)%s+:%s+(%w+)%s+(%w+)")
 
       if change_id and commit_hash then
-        jj_cache = change_id .. " (" .. commit_hash .. ")"
+        -- Get the description of the current change
+        local jj_desc = vim.fn.system("jj log -r @ -T 'description.first_line()'")
+        jj_desc = jj_desc:gsub("\n", ""):gsub("^%s+", ""):gsub("%s+$", "")
+        if jj_desc == "" then
+          jj_desc = "No description"
+        end
+        jj_cache = change_id .. " (" .. commit_hash .. ") " .. jj_desc
         return jj_cache
       end
 
       -- Fallback to Git if we're not in a jj repo
       local git_hash = vim.fn.system("git rev-parse --short HEAD 2>/dev/null | tr -d '\n'")
       if git_hash:match("^%w+$") then
-        jj_cache = git_hash
+        local git_msg = vim.fn.system("git log -1 --pretty=%s 2>/dev/null | tr -d '\n'")
+        if git_msg ~= "" then
+          jj_cache = git_hash .. " " .. git_msg
+        else
+          jj_cache = git_hash
+        end
         return jj_cache
       end
 
