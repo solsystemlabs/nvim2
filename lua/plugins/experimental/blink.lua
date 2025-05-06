@@ -2,7 +2,7 @@ return {
   {
     'saghen/blink.cmp',
     -- optional: provides snippets for the snippet source
-    dependencies = { 
+    dependencies = {
       'rafamadriz/friendly-snippets',
       'hrsh7th/cmp-nvim-lsp', -- Ensure LSP completion source is available
     },
@@ -47,6 +47,13 @@ return {
       -- elsewhere in your config, without redefining it, due to `opts_extend`
       sources = {
         default = { 'lsp', 'path', 'snippets', 'buffer' },
+        providers = {
+          snippets = {
+            opts = {
+              search_paths = { "~/.config/nvim/snippets" },
+            },
+          }
+        }
       },
 
       -- (Default) Rust fuzzy matcher for typo resistance and significantly better performance
