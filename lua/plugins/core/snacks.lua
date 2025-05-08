@@ -99,7 +99,7 @@ return { {
     { "<leader>,",       function() Snacks.picker.buffers() end,                                  desc = "Buffers" },
     { "<leader>/",       function() Snacks.picker.grep() end,                                     desc = "Grep" },
     { "<leader>:",       function() Snacks.picker.command_history() end,                          desc = "Command History" },
-    { "<leader><space>", function() require('telescope.builtin').oldfiles() end,                  desc = "Search Recent Files" },
+    { "<leader><space>", function() Snacks.picker.recent() end,                                   desc = "Search Recent Files" },
     { "<leader>e",       function() Snacks.explorer() end,                                        desc = "File Explorer" },
     { "<leader>n",       function() Snacks.picker.notifications() end,                            desc = "Notification History" },
 
@@ -152,10 +152,12 @@ return { {
     { "<leader>gc",      function() require("telescope-extensions").find_branch_only_files() end, desc = "Git Changed Files" },
     { "<leader>gd",      function() Snacks.picker.git_diff() end,                                 desc = "Git Diff (Hunks)" },
     { "<leader>gf",      function() Snacks.picker.git_log_file() end,                             desc = "Git Log File" },
+    { "<leader>gg",      function() Snacks.picker.git_grep() end,                                 desc = "Git Grep" },
     { "<leader>gl",      function() Snacks.picker.git_log() end,                                  desc = "Git Log" },
     { "<leader>gL",      function() Snacks.picker.git_log_line() end,                             desc = "Git Log Line" },
     { "<leader>gs",      function() Snacks.picker.git_status() end,                               desc = "Git Status" },
-    { "<leader>gS",      function() Snacks.picker.git_stash() end,                                desc = "Git Stash" },
+    { "<leader>gS",      function() Snacks.picker.git_grep({ need_search = true }) end,           desc = "Git Search" },
+    { "<leader>gu",      function() Snacks.picker.git_grep({ untracked = true }) end,             desc = "Git Grep (untracked)" },
 
     -- dadbod-explorer
     { "<leader>le",      function() require("dadbod-explorer").explore() end,                     desc = "Explore" },
