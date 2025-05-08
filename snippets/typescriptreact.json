@@ -1,1 +1,42 @@
-{"clv":{"prefix":"clv","body":"console.log('${1:}', ${2:});"},"cls":{"prefix":"cls","body":"console.log('${1:}');"}}
+{
+  "cls": {
+    "body": "console.log('$0');",
+    "prefix": "cls"
+  },
+  "clv": {
+    "body": "console.log('${1:var}', ${1:var});",
+    "prefix": "clv"
+  },
+  "ercp": {
+    "body": [
+      "import { type ReactNode } from 'react';",
+      "",
+      "type ${1:ComponentName}Props  = {",
+      "  ${2:prop1}: ${3:prop1Type},",
+      "  ${4:prop2}: ${5:prop2Type},",
+      "  ${6:prop3}: ${7:prop3Type},",
+      "}",
+      "",
+      "export function ${1:ComponentName}({",
+      "  ${2:prop1},",
+      "  ${4:prop2},",
+      "  ${6:prop3},",
+      "}: ${1:ComponentName}Props): ReactNode {",
+      "  $0",
+      "  return <></>;",
+      "}"
+    ],
+    "prefix": "ercp"
+  },
+  "erf": {
+    "body": [
+      "import { type ReactNode } from 'react';",
+      "",
+      "export function ${1:}(): ReactNode {",
+      "  $0",
+      "  return <></>;",
+      "}"
+    ],
+    "prefix": "ecf"
+  }
+}
