@@ -29,17 +29,19 @@ return {
           { buffer = true, desc = "[R]emove unused" })
         vim.keymap.set("n", "<leader>is", "<cmd>TSToolsSortImports<CR>",
           { buffer = true, desc = "[S]ort" })
-        -- Fix all shortcut that runs commands in specific order
-        vim.keymap.set("n", "<leader>if", function()
-          -- 1. Import missing
-          vim.cmd("TSToolsAddMissingImports")
-          -- 2. Remove extra
-          vim.cmd("TSToolsRemoveUnusedImports")
-          -- 3. Organize imports
-          vim.cmd("TSToolsOrganizeImports")
-          -- 4. Sort imports
-          vim.cmd("TSToolsSortImports")
-        end, { buffer = true, desc = "[F]ix all" })
+        vim.keymap.set("n", "<leader>if", "<cmd>TSToolsFixAll<CR>",
+          { buffer = true, desc = "[F]ix All" })
+        -- -- Fix all shortcut that runs commands in specific order
+        -- vim.keymap.set("n", "<leader>if", function()
+        --   -- 1. Import missing
+        --   vim.cmd("TSToolsAddMissingImports")
+        --   -- 2. Remove extra
+        --   vim.cmd("TSToolsRemoveUnusedImports")
+        --   -- 3. Organize imports
+        --   vim.cmd("TSToolsOrganizeImports")
+        --   -- 4. Sort imports
+        --   vim.cmd("TSToolsSortImports")
+        -- end, { buffer = true, desc = "[F]ix all" })
       end
     })
   end
