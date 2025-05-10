@@ -14,6 +14,7 @@ require('lazy').setup({
   require 'plugins.core.which-key',
   require 'plugins.experimental.blink',
   require 'plugins.experimental.dadbod-explorer',
+  require 'plugins.experimental.incline',
   require 'plugins.experimental.nvim-scissors',
   require 'plugins.experimental.yazi',
   require 'plugins.lsp.lint',
