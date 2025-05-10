@@ -88,7 +88,7 @@ return {
       },
       tabline = {},
       winbar = {
-        lualine_a = { { 'filename', path = 0 } }
+        -- lualine_a = { { 'filename', path = 0 } }
       },
       inactive_winbar = {},
       extensions = {}
