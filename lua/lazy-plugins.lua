@@ -15,6 +15,7 @@ require('lazy').setup({
   require 'plugins.experimental.blink',
   require 'plugins.experimental.dadbod-explorer',
   require 'plugins.experimental.incline',
+  require 'plugins.experimental.karen-yank',
   require 'plugins.experimental.nvim-scissors',
   require 'plugins.experimental.overseer',
   require 'plugins.experimental.yazi',
