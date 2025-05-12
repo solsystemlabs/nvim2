@@ -119,14 +119,15 @@ return { {
     { "<leader>fr",      function() Snacks.picker.recent() end,                                   desc = "Recent" },
 
     -- git
-    { "<leader>gb",      function() Snacks.picker.git_branches() end,                             desc = "Git Branches" },
     { "<leader>gB",      function() Snacks.gitbrowse() end,                                       desc = "Git Browse",               mode = { "n", "v" } },
+    { "<leader>gb",      function() Snacks.picker.git_branches() end,                             desc = "Git Branches" },
     { "<leader>gc",      function() require("telescope-extensions").find_branch_only_files() end, desc = "Git Changed Files" },
     { "<leader>gd",      function() Snacks.picker.git_diff() end,                                 desc = "Git Diff (Hunks)" },
     { "<leader>gf",      function() Snacks.picker.git_log_file() end,                             desc = "Git Log File" },
     { "<leader>gg",      function() Snacks.lazygit() end,                                         desc = "Lazygit" },
     { "<leader>gl",      function() Snacks.picker.git_log() end,                                  desc = "Git Log" },
     { "<leader>gL",      function() Snacks.picker.git_log_line() end,                             desc = "Git Log Line" },
+    { "<leader>gm",      function() require("blame").open() end,                                  desc = "Git Blame" },
     { "<leader>gp",      function() Snacks.picker.git_grep() end,                                 desc = "Git Grep" },
     { "<leader>gs",      function() Snacks.picker.git_status() end,                               desc = "Git Status" },
     { "<leader>gS",      function() Snacks.picker.git_grep({ need_search = true }) end,           desc = "Git Search" },
