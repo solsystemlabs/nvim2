@@ -1,0 +1,10 @@
+{
+  "cls": {
+    "prefix": "cls",
+    "body": "console.log('$0');"
+  },
+  "clv": {
+    "prefix": "clv",
+    "body": "console.log('${1:var}', ${1:var});"
+  }
+}

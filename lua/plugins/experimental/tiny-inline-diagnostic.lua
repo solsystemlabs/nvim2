@@ -17,9 +17,14 @@ return {
             enabled = true,
             always_show = true,
           },
-          -- set_arrow_to_diag_color = true,
+          enable_on_insert = true,
+          set_arrow_to_diag_color = true,
+          throttle = 10,
+          format = function(diagnostic)
+            return " [" .. diagnostic.source .. "] " .. diagnostic.message
+          end
         },
-        dk
+        kd
       })
       vim.diagnostic.config({ virtual_text = false }) -- Only if needed in your configuration, if you already have native LSP diagnostics
     end

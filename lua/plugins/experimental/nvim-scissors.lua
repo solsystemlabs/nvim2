@@ -1,7 +1,7 @@
 return {
   {
     "chrisgrieser/nvim-scissors",
-    dependencies = "nvim-telescope/telescope.nvim", -- if using telescope
+    dependencies = "folke/snacks.nvim",
     opts = {
       snippetDir = "~/.config/nvim/snippets",
     }
