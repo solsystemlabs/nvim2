@@ -6,6 +6,7 @@ return {
       format = "%s | %t | %a",
       date_format = "%Y-%m-%d",
       max_summary_width = 30,
+      virtual_style = "right_align",
     }
   end,
 }
