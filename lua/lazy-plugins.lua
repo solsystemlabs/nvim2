@@ -18,6 +18,7 @@ require('lazy').setup({
   require 'plugins.experimental.karen-yank',
   require 'plugins.experimental.nvim-scissors',
   require 'plugins.experimental.overseer',
+  require 'plugins.experimental.tiny-inline-diagnostic',
   require 'plugins.experimental.yazi',
   require 'plugins.lsp.lint',
   require 'plugins.lsp.lspconfig',
