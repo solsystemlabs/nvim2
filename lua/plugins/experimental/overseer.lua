@@ -31,7 +31,8 @@ return {
                 return { 'No package.json found' }
               end
               
-              local package_json = vim.fn.json_decode(vim.fn.readfile(package_json_path))
+              local content = vim.fn.readfile(package_json_path)
+              local package_json = vim.fn.json_decode(content)
               if package_json and package_json.scripts then
                 return vim.tbl_keys(package_json.scripts)
               else
@@ -42,7 +43,7 @@ return {
         },
         condition = {
           filetype = { 'javascript', 'typescript', 'javascriptreact', 'typescriptreact' },
-          dir = function()
+          callback = function()
             return vim.fn.findfile('package.json', vim.fn.getcwd() .. ';') ~= ''
           end,
         },
