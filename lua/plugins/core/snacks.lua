@@ -246,6 +246,12 @@ return { {
         Snacks.toggle.indent():map("<leader>ug")
         Snacks.toggle.dim():map("<leader>uD")
         Snacks.toggle({
+          name = 'quicker',
+          set = function()
+            require('quicker').toggle()
+          end
+        }):map("<leader>uq")
+        Snacks.toggle({
           name = 'Undotree',
           set = function()
             vim.cmd.UndotreeToggle()
