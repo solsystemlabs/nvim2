@@ -30,7 +30,6 @@ require('lazy').setup({
   require 'plugins.ui.gitsigns',
   require 'plugins.ui.lualine',
   require 'plugins.ui.noice',
-  require 'plugins.utils.augment',
   require 'plugins.utils.auto-session',
   require 'plugins.utils.autopairs',
   require 'plugins.utils.debug',

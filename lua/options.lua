@@ -80,8 +80,5 @@ vim.opt.foldexpr = 'nvim_treesitter#foldexpr()'
 vim.opt.foldenable = true -- Enable folding
 vim.opt.foldlevel = 99    -- Start with all folds open
 
-vim.g.augment_workspace_folders = { '~/.config/nvim', '~/PycharmProjects/infra-frontend/', '~/.config/fish',
-  '~/.config/chezmoi', '~/jj-grok/', '~/projects/filament-manager' }
-
 -- Optional: Set fold column to show fold indicators
 vim.opt.foldcolumn = '1'
