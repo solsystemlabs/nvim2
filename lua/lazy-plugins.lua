@@ -21,6 +21,7 @@ require('lazy').setup({
   require 'plugins.experimental.quicker',
   require 'plugins.experimental.tiny-inline-diagnostic',
   require 'plugins.experimental.yazi',
+  require 'plugins.experimental.blame',
   require 'plugins.lsp.lint',
   require 'plugins.lsp.lspconfig',
   require 'plugins.lsp.tailwind-tools',
