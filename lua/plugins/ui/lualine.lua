@@ -11,23 +11,23 @@ return {
         return jj_cache
       end
 
-      -- Get the jj status output for the working copy
-      local jj_status = vim.fn.system("jj st --no-pager 2>/dev/null")
-
-      -- Extract jj change ID and commit hash from status output
-      -- Pattern to match lines like "Working copy  (@) : syrvvnly 9c5c890d ..."
-      local change_id, commit_hash = jj_status:match("Working copy%s+%(@%)%s+:%s+(%w+)%s+(%w+)")
-
-      if change_id and commit_hash then
-        -- Get the description of the current change, using --no-graph to avoid TUI characters
-        local jj_desc = vim.fn.system("jj log -r @ --no-graph -T 'description.first_line()'")
-        jj_desc = jj_desc:gsub("\n", ""):gsub("^%s+", ""):gsub("%s+$", "")
-        if jj_desc == "" then
-          jj_desc = "No description"
-        end
-        jj_cache = change_id .. "  " .. jj_desc .. "  (" .. commit_hash .. ")"
-        return jj_cache
-      end
+      -- -- Get the jj status output for the working copy
+      -- local jj_status = vim.fn.system("jj st --no-pager 2>/dev/null")
+      --
+      -- -- Extract jj change ID and commit hash from status output
+      -- -- Pattern to match lines like "Working copy  (@) : syrvvnly 9c5c890d ..."
+      -- local change_id, commit_hash = jj_status:match("Working copy%s+%(@%)%s+:%s+(%w+)%s+(%w+)")
+      --
+      -- if change_id and commit_hash then
+      --   -- Get the description of the current change, using --no-graph to avoid TUI characters
+      --   local jj_desc = vim.fn.system("jj log -r @ --no-graph -T 'description.first_line()'")
+      --   jj_desc = jj_desc:gsub("\n", ""):gsub("^%s+", ""):gsub("%s+$", "")
+      --   if jj_desc == "" then
+      --     jj_desc = "No description"
+      --   end
+      --   jj_cache = change_id .. "  " .. jj_desc .. "  (" .. commit_hash .. ")"
+      --   return jj_cache
+      -- end
 
       -- Fallback to Git if we're not in a jj repo
       local git_hash = vim.fn.system("git rev-parse --short HEAD 2>/dev/null | tr -d '\n'")
