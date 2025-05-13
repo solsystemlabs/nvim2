@@ -4,42 +4,29 @@ return {
   dependencies = { "nvim-lua/plenary.nvim" },
   config = function()
     local harpoon = require("harpoon")
-    
-    harpoon:setup({
-      settings = {
-        save_on_toggle = true,
-        sync_on_ui_close = true,
-      },
-    })
-    
-    -- Extend snacks.picker to include Harpoon functionality
-    local snacks_picker = require("snacks.picker")
-    snacks_picker.harpoon_files = function()
-      local list = harpoon:list()
+
+    harpoon:setup({})
+
+    -- Integrate with snacks.nvim picker
+    vim.keymap.set('n', '<leader>fh', function()
+      local Snacks = require('snacks')
+      local marks = harpoon:list().items -- Get Harpoon marks
       local items = {}
-      for idx, item in ipairs(list.items) do
+      for idx, mark in ipairs(marks) do
         table.insert(items, {
-          display = string.format("%d: %s", idx, item.value),
-          value = item,
-          ordinal = tostring(idx),
+          display = mark.value, -- Display the file path in the picker
+          file = mark.value,    -- Provide the file path for snacks.nvim
+          value = idx,          -- Keep the index for selection
         })
       end
-      
-      snacks_picker.pick({
-        title = "Harpoon Marks",
+      Snacks.picker.pick('Harpoon Marks', {
         items = items,
-        format_item = function(item)
-          return item.display
-        end,
-        on_select = function(item)
-          local buf_id = vim.fn.bufadd(item.value.value)
-          vim.fn.bufload(buf_id)
-          vim.api.nvim_set_current_buf(buf_id)
-          if item.value.context.row then
-            vim.api.nvim_win_set_cursor(0, {item.value.context.row, item.value.context.col or 0})
+        callback = function(item)
+          if item then
+            harpoon:list():select(item.value)
           end
         end,
       })
-    end
+    end, { desc = 'Harpoon: Find marks with snacks picker' })
   end,
 }
