@@ -64,6 +64,14 @@ return {
         lualine_b = {
           -- 'branch',
           { jj_info, icon = '' }, -- Our custom function
+          {
+            function()
+              return require("grapple").name_or_index()
+            end,
+            cond = function()
+              return package.loaded["grapple"] and require("grapple").exists()
+            end
+          },
           'searchcount',
           'diff',
           'diagnostics',

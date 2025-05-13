@@ -220,7 +220,13 @@ return { {
         })
       end,
     },
-    -- Grapple keymaps are defined in grapple.lua
+    -- Grapple keymaps
+    { "<leader>M", function() require("grapple").toggle() end,            { desc = "Toggle file tag (Grapple)" } },
+    { "<leader>1", function() require("grapple").select({ key = 1 }) end, { desc = "Go to tag 1 (Grapple)" } },
+    { "<leader>2", function() require("grapple").select({ key = 2 }) end, { desc = "Go to tag 2 (Grapple)" } },
+    { "<leader>3", function() require("grapple").select({ key = 3 }) end, { desc = "Go to tag 3 (Grapple)" } },
+    { "<leader>4", function() require("grapple").select({ key = 4 }) end, { desc = "Go to tag 4 (Grapple)" } },
+    { "<leader>5", function() require("grapple").select({ key = 5 }) end, { desc = "Go to tag 5 (Grapple)" } },
   },
   init = function()
     vim.api.nvim_create_autocmd("User", {
@@ -248,6 +254,8 @@ return { {
         Snacks.toggle.inlay_hints():map("<leader>uh")
         Snacks.toggle.indent():map("<leader>ug")
         Snacks.toggle.dim():map("<leader>uD")
+        Snacks.toggle.new({ id = 'grapple', name = 'Grapple Menu', set = function() require("grapple").toggle_tags() end })
+            :map("<leader>um")
         Snacks.toggle({
           name = 'quicker',
           set = function()
