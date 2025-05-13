@@ -115,6 +115,7 @@ return { {
     { "<leader>fc",      function() Snacks.picker.files({ cwd = vim.fn.stdpath("config") }) end,  desc = "Find Config File" },
     { "<leader>ff",      function() Snacks.picker.files() end,                                    desc = "Find Files" },
     { "<leader>fg",      function() Snacks.picker.git_files() end,                                desc = "Find Git Files" },
+    { "<leader>fh",      function() Snacks.picker.harpoon_files() end,                            desc = "Harpoon Marks" },
     { "<leader>fp",      function() Snacks.picker.projects() end,                                 desc = "Projects" },
     { "<leader>fr",      function() Snacks.picker.recent() end,                                   desc = "Recent" },
 
@@ -142,6 +143,17 @@ return { {
     { "<leader>dv",      function() require("dadbod-explorer").action("show_distribution") end,   desc = "Show Distribution" },
     { "<leader>dy",      function() require("dadbod-explorer").action("yank_columns") end,        desc = "Yank Columns" },
     { "<leader>do",      function() require("dadbod-explorer").action("list_objects") end,        desc = "List Objects" },
+
+    -- harpoon
+    { "<leader>ha",      function() require("harpoon"):list():add() end,                          desc = "Harpoon Add Mark" },
+    { "<leader>hr",      function() require("harpoon"):list():remove() end,                       desc = "Harpoon Remove Mark" },
+    { "<leader>hc",      function() require("harpoon"):list():clear() end,                        desc = "Harpoon Clear Marks" },
+    { "<leader>h1",      function() require("harpoon"):list():select(1) end,                      desc = "Harpoon Select 1" },
+    { "<leader>h2",      function() require("harpoon"):list():select(2) end,                      desc = "Harpoon Select 2" },
+    { "<leader>h3",      function() require("harpoon"):list():select(3) end,                      desc = "Harpoon Select 3" },
+    { "<leader>h4",      function() require("harpoon"):list():select(4) end,                      desc = "Harpoon Select 4" },
+    { "<leader>hp",      function() require("harpoon"):list():prev() end,                         desc = "Harpoon Previous" },
+    { "<leader>hn",      function() require("harpoon"):list():next() end,                         desc = "Harpoon Next" },
 
     -- search
     { '<leader>s"',      function() Snacks.picker.registers() end,                                desc = "Registers" },
