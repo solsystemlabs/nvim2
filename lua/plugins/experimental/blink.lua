@@ -43,6 +43,21 @@ return {
         -- menu = { border = 'rounded' },
       },
 
+      signature = {
+        enabled = true,
+        trigger = {
+          enabled = true,
+          show_on_keyword = false,
+          show_on_trigger_character = true,
+          show_on_insert = false,
+          show_on_insert_on_trigger_character = true,
+        }
+      },
+      window = {
+        border = "rounded",
+        treesitter_highlighting = true,
+        show_documentation = true,
+      },
       -- Default list of enabled providers defined so that you can extend it
       -- elsewhere in your config, without redefining it, due to `opts_extend`
       sources = {
