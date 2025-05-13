@@ -21,7 +21,10 @@ return {
           set_arrow_to_diag_color = true,
           throttle = 10,
           format = function(diagnostic)
-            return " [" .. diagnostic.source .. "] " .. diagnostic.message
+            if diagnostic.source then
+              return " [" .. diagnostic.source .. "] " .. diagnostic.message
+            end
+            return diagnostic.message
           end
         },
       })

@@ -1,10 +1,1 @@
-{
-  "cls": {
-    "prefix": "cls",
-    "body": "console.log('$0');"
-  },
-  "clv": {
-    "prefix": "clv",
-    "body": "console.log('${1:var}', ${1:var});"
-  }
-}
+{"clv":{"body":"console.log('${1:var}', ${1:var});","prefix":"clv"},"comm":{"body":"/** $0 */","prefix":"comm"},"cls":{"body":"console.log('$0');","prefix":"cls"}}

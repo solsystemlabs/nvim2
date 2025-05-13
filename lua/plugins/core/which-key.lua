@@ -66,7 +66,6 @@ return {
         { '<leader>h', group = 'Git [H]unk' },
         { '<leader>j', group = '[J]ujutsu' },
         { '<leader>p', group = 'Sni[p]pets' },
-        { '<leader>r', group = '[R]efactor' },
         { '<leader>s', group = '[S]earch' },
         { '<leader>o', group = '[O]bsidian' },
         { '<leader>w', group = '[W]orkspace' },

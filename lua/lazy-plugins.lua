@@ -36,7 +36,7 @@ require('lazy').setup({
   require 'plugins.utils.debug',
   require 'plugins.utils.indent_line',
   require 'plugins.utils.obsidian',
-  require 'plugins.utils.refactoring',
+  -- require 'plugins.utils.refactoring',
   require 'plugins.utils.render-markdown',
   require 'plugins.utils.todo-comments',
   require 'plugins.utils.trouble',
@@ -45,7 +45,7 @@ require('lazy').setup({
   require 'plugins.vcs.gitlab',
   require 'plugins.vcs.jj-diffconflicts',
   require 'plugins.vcs.jujutsu',
-  require 'plugins.vcs.lazyjj',
+  -- require 'plugins.vcs.lazyjj',
 }, {
   ui = {
     -- If you are using a Nerd Font: set icons to an empty table which will use the

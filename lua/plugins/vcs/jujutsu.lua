@@ -9,7 +9,6 @@ return {
   -- }
   {
     dir = "~/jj-grok",
-    dependencies = { 'powerman/vim-plugin-AnsiEsc' },
     config = function()
       require('jujutsu').setup()
     end
