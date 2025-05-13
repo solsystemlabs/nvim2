@@ -41,6 +41,7 @@ require('lazy').setup({
   require 'plugins.utils.todo-comments',
   require 'plugins.utils.trouble',
   require 'plugins.utils.ts-comments',
+  require 'plugins.utils.grapple',
   require 'plugins.vcs.gitlab',
   require 'plugins.vcs.jj-diffconflicts',
   require 'plugins.vcs.jujutsu',

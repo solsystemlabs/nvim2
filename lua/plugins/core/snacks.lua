@@ -219,7 +219,8 @@ return { {
           },
         })
       end,
-    }
+    },
+    -- Grapple keymaps are defined in grapple.lua
   },
   init = function()
     vim.api.nvim_create_autocmd("User", {
