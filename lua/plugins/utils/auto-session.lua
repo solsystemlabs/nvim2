@@ -2,12 +2,10 @@ return {
   {
     "rmagatti/auto-session",
     config = function()
-      -- Check if Snacks.picker is available (indicating Snacks.nvim is installed)
       local has_snacks = pcall(function() return _G.Snacks and _G.Snacks.picker end)
 
       local function close_explorer()
         if has_snacks then
-          -- Get all pickers and close any explorer pickers
           for _, picker in pairs(Snacks.picker.all or {}) do
             if picker.source and picker.source.name == "explorer" then
               picker:close()
@@ -18,7 +16,6 @@ return {
 
       local function open_explorer()
         if has_snacks then
-          -- Only open explorer if not already open
           local found = false
           for _, picker in pairs(Snacks.picker.all or {}) do
             if picker.source and picker.source.name == "explorer" then
