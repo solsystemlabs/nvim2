@@ -12,9 +12,11 @@ require('lazy').setup({
   require 'plugins.core.treesitter-textobjects',
   require 'plugins.core.undotree',
   require 'plugins.core.which-key',
+  -- experimental
   require 'plugins.experimental.blame',
   require 'plugins.experimental.bookmarks',
   require 'plugins.experimental.dadbod-explorer',
+  require 'plugins.experimental.dropbar',
   require 'plugins.experimental.leap',
   require 'plugins.experimental.nvim-numbertoggle',
   require 'plugins.experimental.overseer',
