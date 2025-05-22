@@ -13,6 +13,7 @@ require('lazy').setup({
   require 'plugins.core.undotree',
   require 'plugins.core.which-key',
   require 'plugins.experimental.blame',
+  require 'plugins.experimental.bookmarks',
   require 'plugins.experimental.dadbod-explorer',
   require 'plugins.experimental.leap',
   require 'plugins.experimental.overseer',
