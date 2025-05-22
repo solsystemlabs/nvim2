@@ -16,6 +16,7 @@ require('lazy').setup({
   require 'plugins.experimental.bookmarks',
   require 'plugins.experimental.dadbod-explorer',
   require 'plugins.experimental.leap',
+  require 'plugins.experimental.nvim-numbertoggle',
   require 'plugins.experimental.overseer',
   require 'plugins.experimental.quicker',
   -- require 'plugins.experimental.nvim-cursorline',
