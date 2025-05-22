@@ -17,6 +17,7 @@ require('lazy').setup({
   require 'plugins.experimental.leap',
   require 'plugins.experimental.overseer',
   require 'plugins.experimental.quicker',
+  require 'plugins.experimental.nvim-cursorline',
   require 'plugins.experimental.nvim-ts-autotag',
   require 'plugins.lsp.lint',
   require 'plugins.lsp.lspconfig',
