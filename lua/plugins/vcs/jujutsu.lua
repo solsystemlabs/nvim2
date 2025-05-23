@@ -12,5 +12,11 @@ return {
     config = function()
       require('jujutsu').setup()
     end
+  },
+  {
+    dir = "~/jj",
+    config = function()
+      require("jj").setup()
+    end
   }
 }
