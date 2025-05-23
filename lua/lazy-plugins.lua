@@ -30,7 +30,6 @@ require('lazy').setup({
   require 'plugins.lsp.tailwind-tools',
   require 'plugins.lsp.tiny-inline-diagnostic',
   require 'plugins.lsp.typescript-tool',
-  -- require 'plugins.ui.bufferline',
   require 'plugins.ui.blink',
   require 'plugins.ui.colorscheme',
   require 'plugins.ui.gitsigns',
