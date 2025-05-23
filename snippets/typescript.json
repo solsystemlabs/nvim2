@@ -1,1 +1,1 @@
-{"clv":{"body":"console.log('${1:var}', ${1:var});","prefix":"clv"},"comm":{"body":"/** $0 */","prefix":"comm"},"cls":{"body":"console.log('$0');","prefix":"cls"}}
+{"clv":{"body":"console.log('${1:var}', ${1:var});","prefix":"clv"},"cls":{"prefix":"clog","body":"console.log('$0');"},"comm":{"body":"/** $0 */","prefix":"comm"}}
