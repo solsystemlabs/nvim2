@@ -16,7 +16,7 @@ require('lazy').setup({
   require 'plugins.experimental.blame',
   -- require 'plugins.experimental.bookmarks',
   require 'plugins.experimental.dadbod-explorer',
-  require 'plugins.experimental.dropbar',
+  -- require 'plugins.experimental.dropbar',
   require 'plugins.experimental.hbac',
   require 'plugins.experimental.leap',
   require 'plugins.experimental.nvim-numbertoggle',
