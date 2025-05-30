@@ -34,16 +34,12 @@ return {
 
       require("auto-session").setup {
         log_level = "error",
-        auto_session_suppress_dirs = { "~/", "~/Projects", "~/Downloads", "/" },
-        auto_save_enabled = true,
-        auto_restore_enabled = true,
+        suppressed_dirs = { "~/", "~/Projects", "~/Downloads", "/" },
+        auto_save = true,
+        auto_restore = true,
         auto_session_use_git_branch = true,
-        -- Save session when leaving Neovim
         auto_session_on_exit = true,
-        -- Close Snacks explorer before saving session
         pre_save_cmds = { close_explorer },
-        -- Open Snacks explorer after restoring session
-        -- post_restore_cmds = { open_explorer }
       }
 
       -- Add keymaps for session management

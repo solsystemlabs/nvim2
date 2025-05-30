@@ -42,6 +42,8 @@ vim.opt.updatetime = 250
 -- Decrease mapped sequence wait time
 vim.opt.timeoutlen = 300
 
+vim.o.sessionoptions = "blank,buffers,curdir,folds,help,tabpages,winsize,winpos,terminal,localoptions"
+
 -- Configure how new splits should be opened
 vim.opt.splitright = true
 -- vim.opt.splitbelow = true
