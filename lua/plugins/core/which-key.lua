@@ -19,7 +19,9 @@ return {
     opts = {
       -- delay between pressing a key and opening which-key (milliseconds)
       -- this setting is independent of vim.opt.timeoutlen
-      delay = 0,
+      delay = 300,
+      preset = "modern",
+      expand = 1,
       icons = {
         -- set icon mappings to true if you have a Nerd Font
         mappings = vim.g.have_nerd_font,
@@ -71,6 +73,7 @@ return {
         { '<leader>w', group = '[W]orkspace' },
         { '<leader>t', group = '[T]abs' },
         { '<leader>u', group = 'Toggles' },
+        { '<leader>v', group = "O[v]erseer" },
         { '<leader>x', group = 'Trouble' },
       },
     },
