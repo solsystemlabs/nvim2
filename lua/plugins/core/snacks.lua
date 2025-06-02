@@ -106,6 +106,8 @@ return { {
     { "<leader>cc",      function() vim.cmd('source $MYVIMRC') end,                                       desc = "Source neovim" },
     { "<leader>cR",      function() Snacks.rename.rename_file() end,                                      desc = "Rename File" },
 
+    { "<leader>a",       function() vim.cmd('normal! ggVG') end,                                          desc = 'Select All' },
+
     -- nvim-scissors
     { "<leader>pa",      function() require("scissors").addNewSnippet() end,                              desc = "Add Snippet" },
     { "<leader>pe",      function() require("scissors").editSnippet() end,                                desc = "Edit Snippet" },

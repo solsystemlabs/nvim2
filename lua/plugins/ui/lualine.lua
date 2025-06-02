@@ -61,7 +61,6 @@ return {
             end
           },
           'searchcount',
-          'diff',
           'diagnostics',
         },
         lualine_c = {},
@@ -71,7 +70,7 @@ return {
       },
       inactive_sections = {
         lualine_a = {},
-        lualine_b = { { jj_info, icon = '' }, 'searchcount', 'diff', 'diagnostics' },
+        lualine_b = { { jj_info, icon = '' }, 'searchcount', 'diagnostics' },
         lualine_c = { 'filename' },
         lualine_x = { 'location' },
         lualine_y = {},
