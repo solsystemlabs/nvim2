@@ -119,7 +119,7 @@ return { {
     { "<leader>fr",      function() Snacks.picker.recent() end,                                           desc = "Recent" },
 
     -- git
-    { "<leader>gB",      function() Snacks.gitbrowse() end,                                               desc = "Git Browse",               mode = { "n", "v" } },
+    { "<leader>gB",      function() Snacks.gitbrowse() end,                                               desc = "Git Browse",          mode = { "n", "v" } },
     { "<leader>gb",      function() Snacks.picker.git_branches() end,                                     desc = "Git Branches" },
     { "<leader>gc",      function() require("telescope-extensions").find_branch_only_files() end,         desc = "Git Changed Files" },
     { "<leader>gd",      function() Snacks.picker.git_diff() end,                                         desc = "Git Diff (Hunks)" },
@@ -143,47 +143,114 @@ return { {
     { "<leader>dy",      function() require("dadbod-explorer").action("yank_columns") end,                desc = "Yank Columns" },
     { "<leader>do",      function() require("dadbod-explorer").action("list_objects") end,                desc = "List Objects" },
 
+    -- =====================================================
+    -- GRUG-FAR SEARCH AND REPLACE KEYBINDINGS
+    -- =====================================================
+
+    -- BASIC FIND AND REPLACE
+    -- <leader>r prefix for replace operations (avoiding conflicts with existing <leader>s* search)
+    {
+      '<leader>rr',
+      function()
+        local grug = require('grug-far')
+        local ext = vim.bo.buftype == '' and vim.fn.expand('%:e')
+        grug.open({
+          transient = true,
+          prefills = {
+            filesFilter = ext and ext ~= '' and '*.' .. ext or nil,
+          },
+        })
+      end,
+      mode = { 'n', 'v' },
+      desc = '[R]eplace in project'
+    },
+    {
+      '<leader>rw',
+      function()
+        require('grug-far').open({
+          prefills = { search = vim.fn.expand('<cword>') }
+        })
+      end,
+      desc = '[R]eplace current [W]ord'
+    },
+    {
+      '<leader>rf',
+      function()
+        require('grug-far').open({
+          prefills = {
+            paths = vim.fn.expand('%'),
+            search = vim.fn.expand('<cword>')
+          }
+        })
+      end,
+      desc = '[R]eplace in current [F]ile'
+    },
+    {
+      '<leader>rs',
+      function()
+        local search = vim.fn.getreg('/')
+        -- Handle word boundaries for * searches
+        if search and vim.startswith(search, '\\<') and vim.endswith(search, '\\>') then
+          search = '\\b' .. search:sub(3, -3) .. '\\b'
+        end
+        require('grug-far').open({
+          prefills = { search = search },
+        })
+      end,
+      mode = { 'n', 'x' },
+      desc = '[R]eplace using last [S]earch'
+    },
+    {
+      '<leader>rv',
+      function()
+        require('grug-far').open({
+          visualSelectionUsage = 'operate-within-range'
+        })
+      end,
+      mode = { 'n', 'x' },
+      desc = '[R]eplace within [V]isual range'
+    },
     -- search
-    { '<leader>s"',      function() Snacks.picker.registers() end,                                        desc = "Registers" },
-    { '<leader>s/',      function() Snacks.picker.search_history() end,                                   desc = "Search History" },
-    { "<leader>sa",      function() Snacks.picker.autocmds() end,                                         desc = "Autocmds" },
-    { "<leader>sb",      function() require("telescope-extensions").find_branch_only_files() end,         desc = "Find Branch Files" },
-    { "<leader>sc",      function() Snacks.picker.command_history() end,                                  desc = "Command History" },
-    { "<leader>sC",      function() Snacks.picker.commands() end,                                         desc = "Commands" },
-    { "<leader>sd",      function() Snacks.picker.diagnostics() end,                                      desc = "Diagnostics" },
-    { "<leader>sD",      function() Snacks.picker.diagnostics_buffer() end,                               desc = "Buffer Diagnostics" },
-    { "<leader>se",      function() Snacks.picker.lsp_symbols() end,                                      desc = "LSP Symbols" },
-    { "<leader>sg",      function() Snacks.picker.grep() end,                                             desc = "Grep" },
-    { "<leader>sh",      function() Snacks.picker.help() end,                                             desc = "Help Pages" },
-    { "<leader>sH",      function() Snacks.picker.highlights() end,                                       desc = "Highlights" },
-    { "<leader>si",      function() Snacks.picker.icons() end,                                            desc = "Icons" },
-    { "<leader>sj",      function() Snacks.picker.jumps() end,                                            desc = "Jumps" },
-    { "<leader>sk",      function() Snacks.picker.keymaps() end,                                          desc = "Keymaps" },
-    { "<leader>sl",      function() Snacks.picker.lines() end,                                            desc = "Buffer Lines" },
-    { "<leader>sL",      function() Snacks.picker.loclist() end,                                          desc = "Location List" },
-    { "<leader>sm",      function() require("telescope.builtin").git_status() end,                        desc = "Modified" },
-    { "<leader>sM",      function() Snacks.picker.man() end,                                              desc = "Man Pages" },
-    { "<leader>sO",      function() Snacks.picker.grep_buffers() end,                                     desc = "Grep Open Buffers" },
-    { "<leader>sp",      function() Snacks.picker.lazy() end,                                             desc = "Search for Plugin Spec" },
-    { "<leader>sq",      function() Snacks.picker.qflist() end,                                           desc = "Quickfix List" },
-    { "<leader>sR",      function() Snacks.picker.resume() end,                                           desc = "Resume" },
-    { "<leader>sS",      function() Snacks.picker.lsp_workspace_symbols() end,                            desc = "LSP Workspace Symbols" },
-    { "<leader>su",      function() require('modified-buffers')() end,                                    desc = "Unsaved buffers with diff" },
-    { "<leader>sw",      function() Snacks.picker.grep_word() end,                                        desc = "Visual selection or word", mode = { "n", "x" } },
+    { '<leader>s"', function() Snacks.picker.registers() end,                                desc = "Registers" },
+    { '<leader>s/', function() Snacks.picker.search_history() end,                           desc = "Search History" },
+    { "<leader>sa", function() Snacks.picker.autocmds() end,                                 desc = "Autocmds" },
+    { "<leader>sb", function() require("telescope-extensions").find_branch_only_files() end, desc = "Find Branch Files" },
+    { "<leader>sc", function() Snacks.picker.command_history() end,                          desc = "Command History" },
+    { "<leader>sC", function() Snacks.picker.commands() end,                                 desc = "Commands" },
+    { "<leader>sd", function() Snacks.picker.diagnostics() end,                              desc = "Diagnostics" },
+    { "<leader>sD", function() Snacks.picker.diagnostics_buffer() end,                       desc = "Buffer Diagnostics" },
+    { "<leader>se", function() Snacks.picker.lsp_symbols() end,                              desc = "LSP Symbols" },
+    { "<leader>sg", function() Snacks.picker.grep() end,                                     desc = "Grep" },
+    { "<leader>sh", function() Snacks.picker.help() end,                                     desc = "Help Pages" },
+    { "<leader>sH", function() Snacks.picker.highlights() end,                               desc = "Highlights" },
+    { "<leader>si", function() Snacks.picker.icons() end,                                    desc = "Icons" },
+    { "<leader>sj", function() Snacks.picker.jumps() end,                                    desc = "Jumps" },
+    { "<leader>sk", function() Snacks.picker.keymaps() end,                                  desc = "Keymaps" },
+    { "<leader>sl", function() Snacks.picker.lines() end,                                    desc = "Buffer Lines" },
+    { "<leader>sL", function() Snacks.picker.loclist() end,                                  desc = "Location List" },
+    { "<leader>sm", function() require("telescope.builtin").git_status() end,                desc = "Modified" },
+    { "<leader>sM", function() Snacks.picker.man() end,                                      desc = "Man Pages" },
+    { "<leader>sO", function() Snacks.picker.grep_buffers() end,                             desc = "Grep Open Buffers" },
+    { "<leader>sp", function() Snacks.picker.lazy() end,                                     desc = "Search for Plugin Spec" },
+    { "<leader>sq", function() Snacks.picker.qflist() end,                                   desc = "Quickfix List" },
+    { "<leader>sR", function() Snacks.picker.resume() end,                                   desc = "Resume" },
+    { "<leader>sS", function() Snacks.picker.lsp_workspace_symbols() end,                    desc = "LSP Workspace Symbols" },
+    { "<leader>su", function() require('modified-buffers')() end,                            desc = "Unsaved buffers with diff" },
+    { "<leader>sw", function() Snacks.picker.grep_word() end,                                desc = "Visual selection or word", mode = { "n", "x" } },
 
     -- LSP
-    { "gd",              function() Snacks.picker.lsp_definitions() end,                                  desc = "Goto Definition" },
-    { "gD",              function() Snacks.picker.lsp_declarations() end,                                 desc = "Goto Declaration" },
-    { "gI",              function() Snacks.picker.lsp_implementations() end,                              desc = "Goto Implementation" },
-    { "gr",              function() Snacks.picker.lsp_references() end,                                   nowait = true,                     desc = "References" },
-    { "gy",              function() Snacks.picker.lsp_type_definitions() end,                             desc = "Goto T[y]pe Definition" },
+    { "gd",         function() Snacks.picker.lsp_definitions() end,                          desc = "Goto Definition" },
+    { "gD",         function() Snacks.picker.lsp_declarations() end,                         desc = "Goto Declaration" },
+    { "gI",         function() Snacks.picker.lsp_implementations() end,                      desc = "Goto Implementation" },
+    { "gr",         function() Snacks.picker.lsp_references() end,                           nowait = true,                     desc = "References" },
+    { "gy",         function() Snacks.picker.lsp_type_definitions() end,                     desc = "Goto T[y]pe Definition" },
 
     -- Other
-    { "[[",              function() Snacks.words.jump(-vim.v.count1) end,                                 desc = "Prev Reference",           mode = { "n", "t" } },
-    { "]]",              function() Snacks.words.jump(vim.v.count1) end,                                  desc = "Next Reference",           mode = { "n", "t" } },
-    { "<c-/>",           function() Snacks.terminal() end,                                                desc = "Toggle Terminal" },
-    { "<leader>;",       function() Snacks.scratch() end,                                                 desc = "Toggle Scratch Buffer" },
-    { "<leader>n",       function() Snacks.notifier.show_history() end,                                   desc = "Notification History" },
+    { "[[",         function() Snacks.words.jump(-vim.v.count1) end,                         desc = "Prev Reference",           mode = { "n", "t" } },
+    { "]]",         function() Snacks.words.jump(vim.v.count1) end,                          desc = "Next Reference",           mode = { "n", "t" } },
+    { "<c-/>",      function() Snacks.terminal() end,                                        desc = "Toggle Terminal" },
+    { "<leader>;",  function() Snacks.scratch() end,                                         desc = "Toggle Scratch Buffer" },
+    { "<leader>n",  function() Snacks.notifier.show_history() end,                           desc = "Notification History" },
     {
       "<leader>N",
       desc = "Neovim News",
@@ -229,6 +296,47 @@ return { {
     { "<leader>5", function() require("grapple").select({ index = 5 }) end, desc = "Go to tag 5 (Grapple)" },
   },
   init = function()
+    vim.api.nvim_create_autocmd('FileType', {
+      group = vim.api.nvim_create_augroup('grug-far-keybindings', { clear = true }),
+      pattern = { 'grug-far' },
+      callback = function()
+        local opts = { buffer = true }
+
+        -- NAVIGATION KEYBINDINGS
+        -- Open location and close grug-far
+        vim.keymap.set('n', '<C-CR>', function()
+          local inst = require('grug-far').get_instance(0)
+          inst:open_location()
+          inst:close()
+        end, vim.tbl_extend('force', opts, { desc = 'Open location and close' }))
+
+        -- Open location but keep grug-far open
+        vim.keymap.set('n', '<CR>', function()
+          require('grug-far').get_instance(0):open_location()
+        end, vim.tbl_extend('force', opts, { desc = 'Open location' }))
+
+        -- REPLACE OPERATIONS (using localleader as recommended)
+        -- Note: These are the default grug-far keybindings, included for reference
+        -- <localleader>r - Replace all
+        -- <localleader>j - Replace current and go to next
+        -- <localleader>k - Replace current and go to previous
+        -- <localleader>q - Add results to quickfix list
+
+        -- CUSTOM ADDITIONAL KEYBINDINGS
+        -- Toggle word boundaries (fixed strings)
+        vim.keymap.set('n', '<localleader>w', function()
+          local state = unpack(require('grug-far').get_instance(0):toggle_flags({ '--fixed-strings' }))
+          vim.notify('grug-far: toggled --fixed-strings ' .. (state and 'ON' or 'OFF'))
+        end, vim.tbl_extend('force', opts, { desc = 'Toggle word boundaries' }))
+
+        -- Toggle case sensitivity
+        vim.keymap.set('n', '<localleader>c', function()
+          local state = unpack(require('grug-far').get_instance(0):toggle_flags({ '--ignore-case' }))
+          vim.notify('grug-far: toggled --ignore-case ' .. (state and 'ON' or 'OFF'))
+        end, vim.tbl_extend('force', opts, { desc = 'Toggle case sensitivity' }))
+      end,
+    })
+
     vim.api.nvim_create_autocmd("User", {
       pattern = "VeryLazy",
       callback = function()
@@ -256,18 +364,31 @@ return { {
         Snacks.toggle.dim():map("<leader>uD")
         Snacks.toggle.new({ id = 'grapple', name = 'Grapple Menu', set = function() require("grapple").toggle_tags() end })
             :map("<leader>um")
+
         Snacks.toggle({
           name = 'quicker',
           set = function()
             require('quicker').toggle()
           end
         }):map("<leader>uq")
+
+        Snacks.toggle({
+          name = 'grug-far',
+          set = function()
+            require('grug-far').toggle_instance({
+              instanceName = 'far',
+              staticTitle = 'Find and Replace'
+            })
+          end,
+        }):map('<leader>ut')
+
         Snacks.toggle({
           name = 'Undotree',
           set = function()
             vim.cmd.UndotreeToggle()
           end
         }):map("<leader>uu")
+
         Snacks.toggle.new({
           id = "git_blame",
           name = " Git Blame",
@@ -279,6 +400,7 @@ return { {
           end,
         })
             :map("<leader>ub")
+
         Snacks.toggle.new({
           id = "diag_virtual_text",
           name = " Diagnostics Virtual Text",

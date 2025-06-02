@@ -69,6 +69,7 @@ return {
         { '<leader>i', group = 'Code Operations' },
         { '<leader>j', group = '[J]ujutsu' },
         { '<leader>p', group = 'Sni[p]pets' },
+        { "<leader>r", group = "[R]eplace" },
         { '<leader>s', group = '[S]earch' },
         { '<leader>o', group = '[O]bsidian' },
         { '<leader>w', group = '[W]orkspace' },
