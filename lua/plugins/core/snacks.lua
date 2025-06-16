@@ -103,6 +103,7 @@ return { {
     { "<leader>e",       function() Snacks.explorer() end,                                                desc = "File Explorer" },
     { "<leader>n",       function() Snacks.picker.notifications() end,                                    desc = "Notification History" },
 
+    { "<leader>ca",      function() require("actions-preview").code_actions() end,                        desc = "Actions Preview" },
     { "<leader>cc",      function() vim.cmd('source $MYVIMRC') end,                                       desc = "Source neovim" },
     { "<leader>cR",      function() Snacks.rename.rename_file() end,                                      desc = "Rename File" },
 

@@ -29,6 +29,7 @@ require('lazy').setup({
   require 'plugins.lsp.tailwind-tools',
   require 'plugins.lsp.tiny-inline-diagnostic',
   require 'plugins.lsp.typescript-tool',
+  require 'plugins.testing.actions-preview',
   require 'plugins.testing.checkmate',
   require 'plugins.testing.whip',
   require 'plugins.ui.blink',
