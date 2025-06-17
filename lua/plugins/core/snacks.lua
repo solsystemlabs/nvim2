@@ -52,7 +52,10 @@ return { {
           auto_close = true,
           layout = { preset = "sidebar", preview = false },
           hidden = true,
+          ignored = true,
         },
+        files = { hidden = true },
+        grep = { hidden = true },
       }
     },
     quickfile = { enabled = true },
@@ -290,6 +293,16 @@ return { {
         })
       end,
     },
+    -- Overseer keymaps
+    { "<leader>tt", function() vim.cmd("OverseerToggle") end,       desc = "Toggle Overseer" },
+    { "<leader>tr", function() vim.cmd("OverseerRun") end,          desc = "Run Task" },
+    { "<leader>tq", function() vim.cmd("OverseerQuickAction") end,  desc = "Quick Action" },
+    { "<leader>ta", function() vim.cmd("OverseerTaskAction") end,   desc = "Task Action" },
+    { "<leader>tb", function() vim.cmd("OverseerBuild") end,        desc = "Build" },
+
+    -- TSC keymaps
+    { "<leader>tc", function() vim.cmd("TSC") end,                  desc = "TypeScript Check" },
+
     -- Grapple keymaps
     { "<leader>M", function() require("grapple").toggle() end,              desc = "Toggle file tag (Grapple)" },
     { "<leader>1", function() require("grapple").select({ index = 1 }) end, desc = "Go to tag 1 (Grapple)" },

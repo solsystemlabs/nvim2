@@ -31,6 +31,8 @@ require('lazy').setup({
   require 'plugins.lsp.typescript-tool',
   require 'plugins.testing.actions-preview',
   require 'plugins.testing.checkmate',
+  require 'plugins.testing.overseer',
+  require 'plugins.testing.tsc',
   require 'plugins.testing.whip',
   require 'plugins.ui.blink',
   require 'plugins.ui.colorscheme',
