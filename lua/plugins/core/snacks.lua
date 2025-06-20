@@ -310,6 +310,9 @@ return { {
     { "<leader>3", function() require("grapple").select({ index = 3 }) end, desc = "Go to tag 3 (Grapple)" },
     { "<leader>4", function() require("grapple").select({ index = 4 }) end, desc = "Go to tag 4 (Grapple)" },
     { "<leader>5", function() require("grapple").select({ index = 5 }) end, desc = "Go to tag 5 (Grapple)" },
+
+    -- Precognition keymaps
+    { "<leader>up", function() require("precognition").toggle() end, desc = "Toggle Precognition" },
   },
   init = function()
     vim.api.nvim_create_autocmd('FileType', {

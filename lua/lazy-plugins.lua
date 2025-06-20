@@ -32,6 +32,8 @@ require('lazy').setup({
   require 'plugins.testing.actions-preview',
   require 'plugins.testing.checkmate',
   require 'plugins.testing.overseer',
+  require 'plugins.testing.precognition',
+  require 'plugins.testing.tabout',
   require 'plugins.testing.tsc',
   require 'plugins.testing.whip',
   require 'plugins.ui.blink',
