@@ -313,6 +313,31 @@ return { {
 
     -- Precognition keymaps
     { "<leader>up", function() require("precognition").toggle() end, desc = "Toggle Precognition" },
+
+    -- Buffer management
+    { "<leader>bd", function() Snacks.bufdelete() end, desc = "Delete Buffer" },
+    { "<leader>bD", function() Snacks.bufdelete.all() end, desc = "Delete All Buffers" },
+    { "<leader>bo", function() Snacks.bufdelete.other() end, desc = "Delete Other Buffers" },
+
+    -- Window navigation
+    { "<leader>w", group = "Windows" },
+    { "<leader>ww", function() Snacks.picker.win() end, desc = "Window Picker" },
+    { "<leader>wo", function() Snacks.win.maximize() end, desc = "Maximize Window" },
+    { "<leader>wh", function() Snacks.win.hide() end, desc = "Hide Window" },
+
+    -- Terminal and file operations
+    { "<leader>tf", function() Snacks.terminal.open() end, desc = "Terminal Float" },
+    { "<leader>cr", function() Snacks.rename() end, desc = "Rename Symbol" },
+
+    -- Layout management
+    { "<leader>ll", function() Snacks.layout.restore() end, desc = "Restore Layout" },
+    { "<leader>ls", function() Snacks.layout.save() end, desc = "Save Layout" },
+
+    -- Additional picker options
+    { "<leader>so", function() Snacks.picker.options() end, desc = "Vim Options" },
+
+    -- Scope features
+    { "<leader>xs", function() Snacks.scope.textobject() end, desc = "Select Scope" },
   },
   init = function()
     vim.api.nvim_create_autocmd('FileType', {
