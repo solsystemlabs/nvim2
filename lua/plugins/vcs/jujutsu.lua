@@ -26,16 +26,6 @@ return {
             color = 'accent', -- 'gray', 'subtle', 'accent', 'muted' or hex color like '#555555'
           },
         },
-        keymaps = {
-          toggle = '<leader>ji',
-          close = 'q',
-          show_diff = '<CR>',
-          edit_message = 'e',
-          abandon = 'a',
-          rebase = 'r',
-          next_commit = 'j',
-          prev_commit = 'k',
-        },
         log = {
           format = 'short',
           limit = 100,
@@ -46,7 +36,7 @@ return {
         diff = {
           format = 'stat',      -- 'git', 'stat', 'color-words', 'name-only'
           display = 'float',    -- 'split', 'float'
-          split = 'horizontal', -- 'horizontal', 'vertical' (for split mode)
+          split = 'vertical',   -- 'horizontal', 'vertical' (for split mode)
           size = 50,            -- Size percentage for diff window
           float = {
             width = 0.8,        -- Floating window width as percentage of screen
@@ -56,7 +46,7 @@ return {
         },
         status = {
           display = 'float',    -- 'split', 'float'
-          split = 'horizontal', -- 'horizontal', 'vertical' (for split mode)
+          split = 'vertical',   -- 'horizontal', 'vertical' (for split mode)
           size = 50,            -- Size percentage for status window
           float = {
             width = 0.8,        -- Floating window width as percentage of screen
