@@ -16,14 +16,14 @@ return {
         function()
           Snacks.picker.recent({ filter = { cwd = true } })
         end,
-        desc = "Recent files",
+        desc = "Recent files (cwd)",
       },
       {
         "<leader>fR",
         function()
           Snacks.picker.recent()
         end,
-        desc = "Recent files (global)",
+        desc = "Recent files (Root Dir)",
       },
       -- Override default file search commands to always use cwd
       {
@@ -75,6 +75,44 @@ return {
           Snacks.picker.grep_word()
         end,
         desc = "Word (Root Dir)",
+      },
+      -- Add file search keybind override (fF)
+      {
+        "<leader>fF",
+        function()
+          Snacks.picker.files()
+        end,
+        desc = "Find Files (Root Dir)",
+      },
+      -- Add explorer keybind overrides (e, E)
+      {
+        "<leader>e",
+        function()
+          Snacks.explorer({ cwd = vim.fn.getcwd() })
+        end,
+        desc = "Explorer (cwd)",
+      },
+      {
+        "<leader>E",
+        function()
+          Snacks.explorer()
+        end,
+        desc = "Explorer (Root Dir)",
+      },
+      -- Add git UI keybind overrides (gg, gG)
+      {
+        "<leader>gg",
+        function()
+          Snacks.gitui({ cwd = vim.fn.getcwd() })
+        end,
+        desc = "GitUi (cwd)",
+      },
+      {
+        "<leader>gG",
+        function()
+          Snacks.gitui()
+        end,
+        desc = "GitUi (Root Dir)",
       },
     },
   },
