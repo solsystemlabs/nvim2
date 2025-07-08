@@ -10,6 +10,55 @@ return {
   },
   {
     "snacks.nvim",
+    opts = {
+      animate = {
+        duration = 20,
+        easing = "linear",
+        fps = 60,
+      },
+      explorer = {
+        auto_close = true,
+        layout = { preset = "sidebar", preview = true },
+      },
+      indent = { enabled = true },
+      input = { enabled = true },
+      layout = { enabled = true },
+      notifier = {
+        enabled = true,
+        timeout = 5000,
+        top_down = false,
+      },
+      picker = {
+        sources = {
+          explorer = {
+            auto_close = true,
+            layout = { preset = "sidebar", preview = false },
+            hidden = true,
+            ignored = true,
+          },
+          files = { hidden = true },
+          grep = { hidden = true },
+        },
+      },
+      quickfile = { enabled = true },
+      scope = { enabled = true },
+      scroll = {
+        animate = {
+          duration = { step = 10, total = 100 },
+          easing = "linear",
+        },
+        animate_repeat = {
+          delay = 100,
+          duration = { step = 5, total = 25 },
+          easing = "linear",
+        },
+        filter = function(buf)
+          return vim.g.snacks_scroll ~= false
+            and vim.b[buf].snacks_scroll ~= false
+            and vim.bo[buf].buftype ~= "terminal"
+        end,
+      },
+    },
     keys = {
       {
         "<leader>fr",
