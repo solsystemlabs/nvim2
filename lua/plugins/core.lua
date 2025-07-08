@@ -65,104 +65,63 @@ return {
         function()
           Snacks.picker.recent({ filter = { cwd = true } })
         end,
-        desc = "Recent files (cwd)",
+        desc = "Recent files",
       },
-      {
-        "<leader>fR",
-        function()
-          Snacks.picker.recent()
-        end,
-        desc = "Recent files (Root Dir)",
-      },
-      -- Override default file search commands to always use cwd
       {
         "<leader>ff",
         function()
           Snacks.picker.files({ cwd = vim.fn.getcwd() })
         end,
-        desc = "Find Files (cwd)",
+        desc = "Find Files",
       },
       {
         "<leader>fg",
         function()
           Snacks.picker.git_files({ cwd = vim.fn.getcwd() })
         end,
-        desc = "Find Git Files (cwd)",
+        desc = "Find Git Files",
       },
       {
         "<leader><space>",
         function()
           Snacks.picker.recent({ filter = { cwd = true } })
         end,
-        desc = "Find Recent Files (cwd)",
+        desc = "Find Recent Files",
       },
-      -- Swap search functionality: sg -> cwd, sG -> root
       {
         "<leader>sg",
         function()
           Snacks.picker.grep({ cwd = vim.fn.getcwd() })
         end,
-        desc = "Grep (cwd)",
-      },
-      {
-        "<leader>sG",
-        function()
-          Snacks.picker.grep()
-        end,
-        desc = "Grep (Root Dir)",
+        desc = "Grep",
       },
       {
         "<leader>sw",
         function()
           Snacks.picker.grep_word({ cwd = vim.fn.getcwd() })
         end,
-        desc = "Word (cwd)",
+        desc = "Word",
       },
-      {
-        "<leader>sW",
-        function()
-          Snacks.picker.grep_word()
-        end,
-        desc = "Word (Root Dir)",
-      },
-      -- Add file search keybind override (fF)
-      {
-        "<leader>fF",
-        function()
-          Snacks.picker.files()
-        end,
-        desc = "Find Files (Root Dir)",
-      },
-      -- Add explorer keybind overrides (e, E)
       {
         "<leader>e",
         function()
           Snacks.explorer({ cwd = vim.fn.getcwd() })
         end,
-        desc = "Explorer (cwd)",
+        desc = "Explorer",
       },
-      {
-        "<leader>E",
-        function()
-          Snacks.explorer()
-        end,
-        desc = "Explorer (Root Dir)",
-      },
-      -- Add git UI keybind overrides (gg, gG)
       {
         "<leader>gg",
         function()
           Snacks.gitui({ cwd = vim.fn.getcwd() })
         end,
-        desc = "GitUi (cwd)",
+        desc = "GitUi",
       },
-      {
-        "<leader>gG",
-        function()
-          Snacks.gitui()
-        end,
-        desc = "GitUi (Root Dir)",
-      },
+      { "<leader>fF", false },
+      { "<leader>fR", false },
+      { "<leader>sG", false },
+      { "<leader>sW", false },
+      { "<leader>gG", false },
+      { "<leader>E", false },
     },
   },
   {
