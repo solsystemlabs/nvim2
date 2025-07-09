@@ -123,6 +123,7 @@ return { {
     { "<leader>fg",      function() Snacks.picker.git_files() end,                                        desc = "Find Git Files" },
     { "<leader>fp",      function() Snacks.picker.projects() end,                                         desc = "Projects" },
     { "<leader>fr",      function() Snacks.picker.recent() end,                                           desc = "Recent" },
+    { "<leader>fs",      function() vim.cmd('write') end,                                                 desc = "Save File" },
 
     -- git
     { "<leader>gB",      function() Snacks.gitbrowse() end,                                               desc = "Git Browse",          mode = { "n", "v" } },
@@ -294,50 +295,50 @@ return { {
       end,
     },
     -- Overseer keymaps
-    { "<leader>tt", function() vim.cmd("OverseerToggle") end,       desc = "Toggle Overseer" },
-    { "<leader>tr", function() vim.cmd("OverseerRun") end,          desc = "Run Task" },
-    { "<leader>tq", function() vim.cmd("OverseerQuickAction") end,  desc = "Quick Action" },
-    { "<leader>ta", function() vim.cmd("OverseerTaskAction") end,   desc = "Task Action" },
-    { "<leader>tb", function() vim.cmd("OverseerBuild") end,        desc = "Build" },
+    { "<leader>tt", function() vim.cmd("OverseerToggle") end,                desc = "Toggle Overseer" },
+    { "<leader>tr", function() vim.cmd("OverseerRun") end,                   desc = "Run Task" },
+    { "<leader>tq", function() vim.cmd("OverseerQuickAction") end,           desc = "Quick Action" },
+    { "<leader>ta", function() vim.cmd("OverseerTaskAction") end,            desc = "Task Action" },
+    { "<leader>tb", function() vim.cmd("OverseerBuild") end,                 desc = "Build" },
 
     -- TSC keymaps
-    { "<leader>tc", function() vim.cmd("TSC") end,                  desc = "TypeScript Check" },
+    { "<leader>tc", function() vim.cmd("TSC") end,                           desc = "TypeScript Check" },
 
     -- Grapple keymaps
-    { "<leader>M", function() require("grapple").toggle() end,              desc = "Toggle file tag (Grapple)" },
-    { "<leader>1", function() require("grapple").select({ index = 1 }) end, desc = "Go to tag 1 (Grapple)" },
-    { "<leader>2", function() require("grapple").select({ index = 2 }) end, desc = "Go to tag 2 (Grapple)" },
-    { "<leader>3", function() require("grapple").select({ index = 3 }) end, desc = "Go to tag 3 (Grapple)" },
-    { "<leader>4", function() require("grapple").select({ index = 4 }) end, desc = "Go to tag 4 (Grapple)" },
-    { "<leader>5", function() require("grapple").select({ index = 5 }) end, desc = "Go to tag 5 (Grapple)" },
+    { "<leader>M",  function() require("grapple").toggle() end,              desc = "Toggle file tag (Grapple)" },
+    { "<leader>1",  function() require("grapple").select({ index = 1 }) end, desc = "Go to tag 1 (Grapple)" },
+    { "<leader>2",  function() require("grapple").select({ index = 2 }) end, desc = "Go to tag 2 (Grapple)" },
+    { "<leader>3",  function() require("grapple").select({ index = 3 }) end, desc = "Go to tag 3 (Grapple)" },
+    { "<leader>4",  function() require("grapple").select({ index = 4 }) end, desc = "Go to tag 4 (Grapple)" },
+    { "<leader>5",  function() require("grapple").select({ index = 5 }) end, desc = "Go to tag 5 (Grapple)" },
 
     -- Precognition keymaps
-    { "<leader>up", function() require("precognition").toggle() end, desc = "Toggle Precognition" },
+    { "<leader>up", function() require("precognition").toggle() end,         desc = "Toggle Precognition" },
 
     -- Buffer management
-    { "<leader>bd", function() Snacks.bufdelete() end, desc = "Delete Buffer" },
-    { "<leader>bD", function() Snacks.bufdelete.all() end, desc = "Delete All Buffers" },
-    { "<leader>bo", function() Snacks.bufdelete.other() end, desc = "Delete Other Buffers" },
+    { "<leader>bd", function() Snacks.bufdelete() end,                       desc = "Delete Buffer" },
+    { "<leader>bD", function() Snacks.bufdelete.all() end,                   desc = "Delete All Buffers" },
+    { "<leader>bo", function() Snacks.bufdelete.other() end,                 desc = "Delete Other Buffers" },
 
     -- Window navigation
-    { "<leader>w", group = "Windows" },
-    { "<leader>ww", function() Snacks.picker.win() end, desc = "Window Picker" },
-    { "<leader>wo", function() Snacks.win.maximize() end, desc = "Maximize Window" },
-    { "<leader>wh", function() Snacks.win.hide() end, desc = "Hide Window" },
+    { "<leader>w",  group = "Windows" },
+    { "<leader>ww", function() Snacks.picker.win() end,                      desc = "Window Picker" },
+    { "<leader>wo", function() Snacks.win.maximize() end,                    desc = "Maximize Window" },
+    { "<leader>wh", function() Snacks.win.hide() end,                        desc = "Hide Window" },
 
     -- Terminal and file operations
-    { "<leader>tf", function() Snacks.terminal.open() end, desc = "Terminal Float" },
-    { "<leader>cr", function() Snacks.rename() end, desc = "Rename Symbol" },
+    { "<leader>tf", function() Snacks.terminal.open() end,                   desc = "Terminal Float" },
+    { "<leader>cr", function() Snacks.rename() end,                          desc = "Rename Symbol" },
 
     -- Layout management
-    { "<leader>ll", function() Snacks.layout.restore() end, desc = "Restore Layout" },
-    { "<leader>ls", function() Snacks.layout.save() end, desc = "Save Layout" },
+    { "<leader>ll", function() Snacks.layout.restore() end,                  desc = "Restore Layout" },
+    { "<leader>ls", function() Snacks.layout.save() end,                     desc = "Save Layout" },
 
     -- Additional picker options
-    { "<leader>so", function() Snacks.picker.options() end, desc = "Vim Options" },
+    { "<leader>so", function() Snacks.picker.options() end,                  desc = "Vim Options" },
 
     -- Scope features
-    { "<leader>xs", function() Snacks.scope.textobject() end, desc = "Select Scope" },
+    { "<leader>xs", function() Snacks.scope.textobject() end,                desc = "Select Scope" },
   },
   init = function()
     vim.api.nvim_create_autocmd('FileType', {
