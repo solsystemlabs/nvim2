@@ -174,4 +174,23 @@ return {
       end
     end,
   },
+  {
+    "folke/which-key.nvim",
+    opts = {
+      delay = 300,
+      preset = "modern",
+      layout = {
+        width = { min = 20, max = 40 },
+        height = { min = 4, max = 50 },
+        spacing = 2,
+        align = "center",
+      },
+      win = {
+        wo = {
+          -- winblend = 10, -- value between 0-100 0 for fully opaque and 100 for fully transparent
+          winblend = 50,
+        },
+      },
+    },
+  },
 }
