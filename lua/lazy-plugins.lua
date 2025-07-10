@@ -19,7 +19,6 @@ require('lazy').setup({
   require 'plugins.experimental.navigate-note',
   require 'plugins.experimental.nvim-numbertoggle',
   require 'plugins.experimental.quicker',
-  -- require 'plugins.experimental.nvim-cursorline',
   require 'plugins.experimental.nvim-ts-autotag',
   require 'plugins.experimental.stcursorword',
   require 'plugins.lsp.lint',
@@ -45,8 +44,8 @@ require('lazy').setup({
   require 'plugins.utils.indent_line',
   require 'plugins.utils.grapple',
   require 'plugins.utils.karen-yank',
+  require 'plugins.utils.move',
   require 'plugins.utils.obsidian',
-  -- require 'plugins.utils.refactoring',
   require 'plugins.utils.render-markdown',
   require 'plugins.utils.todo-comments',
   require 'plugins.utils.trouble',
@@ -54,9 +53,7 @@ require('lazy').setup({
   require 'plugins.utils.vim-repeat',
   require 'plugins.utils.yazi',
   require 'plugins.vcs.gitlab',
-  require 'plugins.vcs.jj-diffconflicts',
   require 'plugins.vcs.jujutsu',
-  require 'plugins.vcs.lazyjj',
 }, {
   ui = {
     -- If you are using a Nerd Font: set icons to an empty table which will use the

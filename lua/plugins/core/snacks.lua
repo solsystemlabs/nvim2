@@ -6,7 +6,7 @@ return { {
   ---@type snacks.Config
   opts = {
     animate = {
-      duration = 20,
+      duration = 10,
       easing = 'linear',
       fps = 60,
     },
@@ -124,6 +124,7 @@ return { {
     { "<leader>fp",      function() Snacks.picker.projects() end,                                         desc = "Projects" },
     { "<leader>fr",      function() Snacks.picker.recent() end,                                           desc = "Recent" },
     { "<leader>fs",      function() vim.cmd('write') end,                                                 desc = "Save File" },
+    { "<leader>fS",      function() vim.cmd('wall') end,                                                  desc = "Save All Files" },
 
     -- git
     { "<leader>gB",      function() Snacks.gitbrowse() end,                                               desc = "Git Browse",          mode = { "n", "v" } },

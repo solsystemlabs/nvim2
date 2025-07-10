@@ -6,6 +6,12 @@ return {
   --     require('jujutsu').setup()
   --   end,
   -- },
+  -- {
+  --   dir = '~/projects/keycounter.nvim',
+  --   config = function()
+  --     require('keycounter').setup()
+  --   end
+  -- },
   {
     dir = "~/jj-grok",
     config = function()

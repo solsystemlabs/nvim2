@@ -171,4 +171,3 @@ local function find_unsaved_buffers()
 end
 
 return find_unsaved_buffers
-
