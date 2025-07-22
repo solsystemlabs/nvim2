@@ -60,13 +60,13 @@ return {
     }
 
     -- Configure format on save to skip node_modules
-    opts.format_on_save = function(bufnr)
-      local bufname = vim.api.nvim_buf_get_name(bufnr)
-      if bufname:match("/node_modules/") then
-        return
-      end
-      return { timeout_ms = 1000, lsp_fallback = true }
-    end
+    -- opts.format_on_save = function(bufnr)
+    --   local bufname = vim.api.nvim_buf_get_name(bufnr)
+    --   if bufname:match("/node_modules/") then
+    --     return
+    --   end
+    --   return { timeout_ms = 1000, lsp_fallback = true }
+    -- end
 
     return opts
   end,
