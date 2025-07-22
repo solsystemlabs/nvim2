@@ -13,3 +13,9 @@ vim.keymap.set("n", "gl", function()
   vim.cmd("vsplit")
   vim.lsp.buf.definition()
 end, { desc = "Go to definition in vertical split" })
+
+-- Fold navigation
+vim.keymap.set("n", "z-", "<Cmd>set foldlevel-=1<CR>zz", { desc = "Decrease fold level" })
+vim.keymap.set("n", "z=", "<Cmd>set foldlevel+=1<CR>zz", { desc = "Increase fold level" })
+vim.keymap.set("n", "zj", "zjzxzz", { desc = "Next fold (collapse others)" })
+vim.keymap.set("n", "zk", "zkzxzz", { desc = "Previous fold (collapse others)" })
