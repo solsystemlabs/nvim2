@@ -10,6 +10,5 @@ return {
 
       return { timeout_ms = 1000, lsp_fallback = true }
     end,
-    format_after_save = { lsp_fallback = true },
   },
 }
