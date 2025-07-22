@@ -8,3 +8,8 @@ Snacks.toggle({
     vim.cmd.UndotreeToggle()
   end,
 }):map("<leader>uu")
+
+vim.keymap.set("n", "gl", function()
+  vim.cmd("vsplit")
+  vim.lsp.buf.definition()
+end, { desc = "Go to definition in vertical split" })
