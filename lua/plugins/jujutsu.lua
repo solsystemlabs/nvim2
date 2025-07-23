@@ -1,5 +1,15 @@
 return {
   {
+    dir = "~/projects/jj3/",
+    config = function()
+      require("jj").setup({
+        keymaps = {
+          toggle_log = "<leader>jl",
+        },
+      })
+    end,
+  },
+  {
     dir = "~/projects/jj-nvim/",
     config = function()
       require("jj-nvim").setup({

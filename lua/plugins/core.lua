@@ -116,6 +116,20 @@ return {
         end,
         desc = "GitUi",
       },
+      {
+        "<leader>n",
+        function()
+          Snacks.picker.notifications()
+        end,
+        desc = "Notification History (Picker)",
+      },
+      {
+        "<leader>N", 
+        function()
+          Snacks.notifier.show_history()
+        end,
+        desc = "Notification History (Buffer)",
+      },
       { "<leader>fF", false },
       { "<leader>fR", false },
       { "<leader>sG", false },
@@ -143,6 +157,7 @@ return {
   },
   {
     "akinsho/bufferline.nvim",
+    enabled = false,
     optional = true,
     opts = function()
       local Offset = require("bufferline.offset")

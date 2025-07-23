@@ -52,7 +52,7 @@ return {
     -- Advanced features
     { "<leader>or",  "<cmd>ObsidianRename<CR>",          desc = "[R]ename note" },
     { "<leader>oc",  "<cmd>ObsidianTOC<CR>",             desc = "Table of [C]ontents" },
-    { "<leader>ot",  "<cmd>ObsidianNewFromTemplate<CR>", desc = "[N]ew from template" },
+    { "<leader>oT",  "<cmd>ObsidianNewFromTemplate<CR>", desc = "New from [T]emplate" },
   },
   opts = {
     -- Directory where your vaults are stored
