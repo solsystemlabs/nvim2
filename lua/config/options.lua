@@ -7,3 +7,6 @@ vim.g.lazyvim_prettier_needs_config = false
 -- Enhanced file change detection
 vim.opt.autoread = true
 vim.opt.updatetime = 250
+
+-- Clipboard configuration
+vim.opt.clipboard = "unnamedplus"
