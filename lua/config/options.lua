@@ -10,3 +10,16 @@ vim.opt.updatetime = 250
 
 -- Clipboard configuration
 vim.opt.clipboard = "unnamedplus"
+
+vim.opt.listchars = { tab = "» ", trail = "·", nbsp = "␣" }
+
+-- Folding configuration using Treesitter
+vim.opt.foldenable = true -- Enable folding
+vim.opt.foldlevel = 99 -- Start with all folds open
+vim.opt.smoothscroll = true
+vim.opt.foldexpr = "v:lua.require'lazyvim.util'.treesitter.foldexpr()"
+vim.opt.foldmethod = "expr"
+-- Optional: Set fold column to show fold indicators
+vim.opt.foldcolumn = "1"
+
+vim.opt.scrolloff = 10
