@@ -296,4 +296,28 @@ return {
       })
     end,
   },
+  {
+    "eero-lehtinen/oklch-color-picker.nvim",
+    event = "VeryLazy",
+    version = "*",
+    keys = {
+      {
+        "<leader>v",
+        function()
+          require("oklch-color-picker").pick_under_cursor()
+        end,
+        desc = "Color pick under cursor",
+      },
+    },
+    opts = {
+      highlight = {
+        enabled = true,
+        style = "background", -- Displays the color square at the end of the line
+        virtual_text = "■", -- Square symbol for color preview
+      },
+      patterns = {
+        css_oklch = { priority = -1, "()oklch%([^,]-%)()" }, -- Ensures OKLCH is recognized
+      },
+    },
+  },
 }
