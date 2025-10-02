@@ -11,7 +11,7 @@ return {
     opts.formatters_by_ft.html = { "prettier" }
     opts.formatters_by_ft.css = { "prettier" }
     opts.formatters_by_ft.scss = { "prettier" }
-    opts.formatters_by_ft.markdown = { "prettier" }
+    opts.formatters_by_ft.markdown = { "mdformat" }
     opts.formatters_by_ft.yaml = { "prettier" }
     opts.formatters_by_ft.graphql = { "prettier" }
     opts.formatters_by_ft.vue = { "prettier" }
