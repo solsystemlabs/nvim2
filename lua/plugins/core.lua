@@ -2,7 +2,7 @@ return {
   {
     "LazyVim/LazyVim",
     opts = {
-      colorscheme = "cyberdream",
+      colorscheme = "flexoki",
       news = {
         neovim = true,
       },
@@ -112,9 +112,9 @@ return {
       {
         "<leader>gg",
         function()
-          Snacks.gitui({ cwd = vim.fn.getcwd() })
+          Snacks.lazygit({ cwd = vim.fn.getcwd() })
         end,
-        desc = "GitUi",
+        desc = "LazyGit",
       },
       {
         "<leader>n",

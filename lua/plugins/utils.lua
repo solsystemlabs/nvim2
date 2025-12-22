@@ -51,4 +51,15 @@ return {
       opts = {},
     },
   },
+  {
+    "shortcuts/no-neck-pain.nvim",
+    version = "*",
+    cmd = "NoNeckPain",
+    keys = {
+      { "<leader>p", "<cmd>NoNeckPain<cr>", desc = "No Neck Pain" },
+    },
+    opts = {
+      width = 160,
+    },
+  },
 }

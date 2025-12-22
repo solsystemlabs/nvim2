@@ -57,7 +57,7 @@ Several default keymaps are explicitly disabled in `core.lua`:
 - Explorer auto-closes, has sidebar layout with preview
 - Picker searches include hidden files
 - Smooth scroll animation configured
-- GitUI replaces LazyGit (`<leader>gg`)
+- LazyGit for git operations (`<leader>gg`)
 
 ### Formatter Setup
 Prettier configuration in `conform.lua`:
